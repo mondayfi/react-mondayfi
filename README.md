@@ -15,7 +15,4 @@
 
 Thanks for WebbyLab https://webbylab.com/contacts. Project is based on their project: https://github.com/WebbyLab/itsquiz-wall
 
-* WebbyLab https://webbylab.com/contacts
-* It's Quiz
-
 
