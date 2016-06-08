@@ -1,2 +1,2 @@
 import './normalize.css';
-import './typography.less';
+import './mo-colorwrap.scss'

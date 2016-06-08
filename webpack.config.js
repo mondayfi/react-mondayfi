@@ -26,8 +26,8 @@ module.exports = {
                 loader: ExtractTextPlugin.extract("style-loader", "css-loader!autoprefixer-loader")
             },
             {
-                test: /\.less$/,
-                loader: ExtractTextPlugin.extract("style-loader", "css-loader!autoprefixer-loader!less-loader")
+                test: /\.scss$/,
+                loader: ExtractTextPlugin.extract("style-loader", "css-loader!sass-loader!sass-resources!autoprefixer-loader")
             },
 
             { test: /\.gif$/, loader: "url-loader?limit=10000&mimetype=image/gif" },
@@ -46,5 +46,6 @@ module.exports = {
     },
     eslint: {
         configFile: '.eslintrc'
-    }
+    },
+    sassResources: [ './shared/assets/resources/variables.scss', './shared/assets/resources/mixins.scss', './shared/assets/resources/font-declarations.scss' , './shared/assets/resources/grid.scss' ]
 };

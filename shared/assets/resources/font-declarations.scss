@@ -1,0 +1,75 @@
+body {
+  @include font-body;
+  color: $color-black;
+  font-size: 16px;
+  line-height: 1.5em;
+  font-weight: 300;
+}
+
+h1,
+%mo-h1 {
+  @include font-title;
+  letter-spacing: -1px;
+  font-size: 48px;
+  line-height: 1.125em;
+  font-weight: 200;
+
+  @include breakpoint(tablet-and-up) {
+    font-size: 64px;
+  }
+}
+%mo-h1--fontbody {
+  @include font-body;
+}
+
+h2,
+%mo-h2 {
+  @include font-title;
+  letter-spacing: -1px;
+  font-size: 26px;
+  line-height: 1.125em;
+
+  @include breakpoint(tablet-and-up) {
+    font-size: 42px;
+  }
+}
+%mo-h2--fontbody {
+  @include font-body;
+}
+
+h3,
+%mo-h3 {
+  font-size: 16px;
+  line-height: 1.5em;
+  font-weight: 200;
+  @include breakpoint(tablet-and-up) {
+    font-size: 24px;
+  }
+}
+
+p {
+  margin-bottom: 16px;
+  @include breakpoint(tablet-and-up) {
+    font-size: 20px;
+    line-height: 1.5em;
+  }
+}
+
+strong {
+  font-weight: 600;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+  @include breakpoint(tablet-and-up) {
+    font-size: 20px;
+  }
+}
+
+.mo-smalltext {
+  font-size: 14px;
+  @include breakpoint(tablet-and-up) {
+    font-size: 16px;
+  }
+}

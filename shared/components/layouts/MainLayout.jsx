@@ -2,7 +2,7 @@ import React, { Component, PropTypes } from 'react';
 
 
 if (process.env.BROWSER) {
-    require('./MainLayout.less');
+    require('./MainLayout.sass');
 }
 
 export default class MainLayout extends Component {

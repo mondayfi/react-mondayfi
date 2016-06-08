@@ -8,7 +8,7 @@ import config              from '../../config';
 import { sendEvent }       from '../../utils/googleAnalytics';
 import { makeSlug }        from '../../utils/urlUtil';
 
-import IndexPage from '../../components/pages/Index.jsx';
+import FrontPage from '../../components/pages/FrontPage.jsx';
 
 const embedEvents = new EmbedEvents({
     embedOrigin: config.embedOrigin
@@ -17,7 +17,7 @@ const embedEvents = new EmbedEvents({
 class IndexPageContainer extends Component {
 
     render() {
-        return <IndexPage />;
+        return <FrontPage />;
     }
 }
 

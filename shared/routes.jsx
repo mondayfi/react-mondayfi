@@ -5,14 +5,14 @@ import App from './containers/App.jsx';
 
 import MainLayout from './containers/layouts/MainLayout.jsx';
 
-import IndexPageContainer       from './containers/pages/IndexPage.jsx';
+import FrontPageContainer       from './containers/pages/FrontPage.jsx';
 
 export default (
     <Route component={App} >
         <Route component={MainLayout} path='/'>
             <Redirect from='/' to='/activations' />
 
-            <Route component={ IndexPageContainer } path='/activations' />
+            <Route component={FrontPageContainer} path='/activations' />
 
             <Redirect from='*' to='/' />
         </Route>
