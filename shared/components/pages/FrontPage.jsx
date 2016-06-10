@@ -8,6 +8,9 @@ import cx    from 'classnames';
 
 import FrontHero from '../FrontHero.jsx';
 import WhatWeDo from '../WhatWeDo.jsx';
+import CompetenceBullets from '../CompetenceBullets.jsx';
+import WhoWeAre from '../WhoWeAre.jsx';
+import VlogLiftup from '../VlogLiftup.jsx';
 
 
 if (process.env.BROWSER) {
@@ -20,10 +23,13 @@ export default class ActivationsPage extends Component {
     	const frontPageClasses = cx({
     		'mo-front-page': true
     	});
-
+        
         return (<div className={frontPageClasses}>
             <FrontHero />
             <WhatWeDo />
+            <CompetenceBullets />
+            <VlogLiftup />
+            <WhoWeAre />
         </div>);
     }
 }
