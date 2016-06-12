@@ -59,9 +59,9 @@ app.use((req, res) => {
     // const i18nTools = i18nToolsRegistry[locale];
 
     match({ routes, location: req.url }, (error, redirectLocation, renderProps) => {
-        if (req.url === '/') {
-            return res.redirect(302, '/activations');
-        }
+        // if (req.url === '/') {
+        //     return res.redirect(302, '/activations');
+        // }
         if (redirectLocation) {
             return res.redirect(301, redirectLocation.pathname + redirectLocation.search);
         } else if (error) {

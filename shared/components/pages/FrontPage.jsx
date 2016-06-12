@@ -17,7 +17,7 @@ if (process.env.BROWSER) {
     require('./FrontPage.scss');
 }
 
-export default class ActivationsPage extends Component {
+export default class FrontPage extends Component {
 
     render() {
     	const frontPageClasses = cx({

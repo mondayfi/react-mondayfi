@@ -9,10 +9,9 @@ import FrontPageContainer       from './containers/pages/FrontPage.jsx';
 
 export default (
     <Route component={App} >
-        <Route component={MainLayout} path='/'>
-            <Redirect from='/' to='/activations' />
+        <Route component={MainLayout}>
 
-            <Route component={FrontPageContainer} path='/activations' />
+            <Route component={FrontPageContainer} path='/' />
 
             <Redirect from='*' to='/' />
         </Route>

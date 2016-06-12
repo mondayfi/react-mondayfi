@@ -46,5 +46,5 @@ loadLocale(locale).then(localeData => {
         document.getElementById('react-view')
     );
 }).catch(error => {
-    console.error(error);
+    console.error(error.stack);
 });
