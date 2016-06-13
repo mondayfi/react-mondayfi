@@ -20,6 +20,7 @@ if (process.env.BROWSER) {
 export default class FrontPage extends Component {
 
     render() {
+        const { videoEpisode } = this.props;
     	const frontPageClasses = cx({
     		'mo-front-page': true
     	});
@@ -28,7 +29,7 @@ export default class FrontPage extends Component {
             <FrontHero />
             <WhatWeDo />
             <CompetenceBullets />
-            <VlogLiftup />
+            <VlogLiftup {...videoEpisode} />
             <WhoWeAre />
         </div>);
     }

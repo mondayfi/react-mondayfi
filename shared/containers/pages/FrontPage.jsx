@@ -1,7 +1,8 @@
 import React, { Component, PropTypes } from 'react';
 import { connect }                     from 'react-redux';
+import _ from 'lodash';
 
-import { loadVideos } from '../../actions/videos';
+import { getLatest } from '../../actions/videos';
 import connectDataFetchers from '../../lib/connectDataFetchers.jsx';
 import EmbedEvents         from '../../utils/EmbedEventsUtil';
 import config              from '../../config';
@@ -17,19 +18,17 @@ const embedEvents = new EmbedEvents({
 class IndexPageContainer extends Component {
 
     render() {
-        // console.log(this.props)
-        return <FrontPage />;
+        const { getLatestVideo } = this.props;
+        return <FrontPage videoEpisode={ getLatestVideo.episode } />;
     }
 }
 
-function mapStateToProps(videosArgs) {
-    // console.log(videosArgs)
-    const { videos } = videosArgs;
+function mapStateToProps({ getLatestVideo }) {
     return {
-        videos
+        getLatestVideo
     };
 }
 
 export default connect(mapStateToProps)(
-    connectDataFetchers(IndexPageContainer, [ loadVideos ])
+    connectDataFetchers(IndexPageContainer, [ getLatest ])
 );
