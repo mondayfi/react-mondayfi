@@ -16,7 +16,7 @@ export default class WhoWeAre extends Component {
                         <div className='mo-flexbox__item mo-flexbox__item--border mo-flexbox__item--centerphone'>
                             <div className='mo-authorimage mo-authorimage--left'>
                                 <div className='mo-authorimage__imagefilter'></div>
-                                <img className='mo-authorimage__image' src='images/pyry.jpg' alt='' />
+                                <img className='mo-authorimage__image' src='/static/images/pyry.jpg' alt='' />
                             </div>
                             <div className='mo-author'>Pyry Kovanen</div>
                             <a href='tel:+358408098364' className='mo_linkicon'>
@@ -38,7 +38,7 @@ export default class WhoWeAre extends Component {
                         <div className='mo-flexbox__item mo-flexbox__item--centerphone'>
                             <div className='mo-authorimage mo-authorimage--right'>
                                 <div className='mo-authorimage__imagefilter'></div>
-                                <img className='mo-authorimage__image' src='images/samuel.jpg' alt='' />
+                                <img className='mo-authorimage__image' src='/static/images/samuel.jpg' alt='' />
                             </div>
                             <div className='mo-author'>Samuel Klinkmann</div>
                             <a href='tel:+358404869209' className='mo_linkicon'>

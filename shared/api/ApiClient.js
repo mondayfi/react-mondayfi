@@ -1,7 +1,7 @@
 import fetch       from 'isomorphic-fetch';
 import queryString from 'query-string';
 import Promise     from 'bluebird';
-import _      from 'lodash'
+import _           from 'lodash'
 
 export default class ApiClient {
     constructor({ prefix = 'api/v1' } = {}) {
@@ -59,7 +59,7 @@ export default class ApiClient {
 
         const init = {
             method,
-            mode: 'cors', 
+            mode: 'cors',
             headers: {
                 Accept: 'application/json',
                 'Content-Type': 'application/json'
@@ -69,10 +69,12 @@ export default class ApiClient {
         if (method !== 'get' && method !== 'head') {
             init.body = JSON.stringify(body);
         }
+        
         return fetch(`${this.prefix}/${urlWithQuery}`, init).then(res => {
             if (res.status >= 400) {
                 throw new Error('Bad response from server');
             }
+            
             return res.json();
         }).then(data => {
             if (data) {
@@ -80,6 +82,7 @@ export default class ApiClient {
             }
 
             return Promise.reject(data.error);
+
         });
     }
 

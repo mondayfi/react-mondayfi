@@ -3,9 +3,9 @@
   "version": "0.0.1",
   "description": "Repo for Monday.fi",
   "author": {
-    "name": "WebbyLab",
-    "email": "office@webbylab.com",
-    "url": "http://webbylab.com"
+    "name": "Pyry Kovanen",
+    "email": "pyry@monday.fi",
+    "url": "http://monday.fi"
   },
   "private": true,
   "scripts": {
