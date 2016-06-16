@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import cx    from 'classnames';
 import VlogLiftup from '../VlogLiftup.jsx';
+import { chain } from 'lodash';
 
 
 if (process.env.BROWSER) {
@@ -8,6 +9,14 @@ if (process.env.BROWSER) {
 }
 
 export default class FrontPage extends Component {
+
+    nl2br(string) {
+        const arrayOfText = string.split('\n');
+        return chain(arrayOfText)
+            .compact()
+            .map((d, i) => <p key={i}>{d}</p>)
+            .value(); 
+    }
 
     render() {
         const {video} = this.props;
@@ -17,6 +26,7 @@ export default class FrontPage extends Component {
         
         return (<div className={frontPageClasses}>
             <VlogLiftup {...video} />
+            { this.nl2br(video.description.en) }
         </div>);
     }
 }
