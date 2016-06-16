@@ -24,7 +24,7 @@ export function getMetaDataFromState({ route, state, params = {}, query = {}, la
         return {
             type        : 'ACTIVATION',
             title       : name,
-            siteName    : "It's quiz",
+            siteName    : "Monday Digital",
             image       : pictureURL ? pictureURL.replace('svg', 'png') : '',
             description : message
         };
@@ -36,8 +36,6 @@ export function getMetaDataFromState({ route, state, params = {}, query = {}, la
         const greeting = _getGreeting(state.currentAssessmentSystem.assessmentSystem, userQuizSession.score);
 
         const sharePhrases = {
-            ru: 'Я сдал тест "{name}" на {score}%. Мой результат: "{greeting}"',
-            uk: 'Я склав тест "{name}" на {score}%. Мій результат: "{greeting}"',
             en: 'I have passed test "{name}" and gained {score}%. My result is: "{greeting}"'
         };
 
@@ -47,7 +45,7 @@ export function getMetaDataFromState({ route, state, params = {}, query = {}, la
         return {
             type        : 'RESULT',
             title,
-            siteName    : "It's quiz",
+            siteName    : "Monday Digital",
             image       : pictureURL ? pictureURL.replace('svg', 'png') : '',
             description : greetingDescription || message
         };
@@ -89,10 +87,10 @@ export function getMetaDataFromState({ route, state, params = {}, query = {}, la
 
     return {
         type        : 'MAIN',
-        title       : 'Quiz Wall',
-        siteName    : 'It\'s quiz',
-        image       : 'http://app.itsquiz.com/be/static/images/logo.png',
-        description : 'Discover tons of different vacancies, tests, quizzes, questionnaires and more...'
+        title       : 'Monday Digital',
+        siteName    : 'Monday',
+        image       : 'http://monday.fi/images/monday_logo.svg',
+        description : 'LOLOL'
     };
 }
 

@@ -39,12 +39,12 @@
     bottom: 0;
     left: 0;
     right: 0;
-    // background-image: url('../images/splash-phone.jpg');
+    background-image: url('/static/images/splash-phone.jpg');
     background-size: cover;
     background-position: center;
 
     @include breakpoint(tablet-and-up) {
-      // background-image: url('../images/splash-desktop.jpg')
+      background-image: url('/static/images/splash-desktop.jpg')
     }
   }
 
@@ -84,7 +84,7 @@
       min-height: 400px;
       height: 100%;
       display: block;
-      // background: url('../images/clouds.png') 0 100% repeat-x;
+       background: url('/static/images/clouds.png') 0 100% repeat-x;
     }
   }
 }

@@ -140,8 +140,12 @@ function renderHTML({ componentHTML, initialState, metaData, config }) {
         <html>
         <head>
             <meta charset="utf-8">
-            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <meta name="viewport" content="width=device-width, initial-scale=1">
+            <script src="//use.typekit.net/fow1tld.js"></script>
+            <script>try{Typekit.load();}catch(e){}</script>
             <link rel="shortcut icon" href="/static/favicon.ico"/>
+            <link rel="icon" type="image/png" href="/static/favicon-32x32.png" sizes="32x32" />
+            <link rel="icon" type="image/png" href="/static/favicon-16x16.png" sizes="16x16" />
             <title>${escapeHTML(metaData.title)}</title>
 
             <meta name="description" content="${escapeHTML(metaData.description)}">
@@ -161,51 +165,7 @@ function renderHTML({ componentHTML, initialState, metaData, config }) {
             <meta name="twitter:image" content="${escapeHTML(metaData.image)}" />
             <meta property="fb:app_id" content="${escapeHTML(config.facebookAppId)}" />
 
-            <link href='https://fonts.googleapis.com/css?family=Roboto:400,100,300,500,700,900&subset=latin,cyrillic' rel='stylesheet' type='text/css'>
-            <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
-            <link rel="stylesheet" href="https://storage.googleapis.com/code.getmdl.io/1.0.6/material.cyan-pink.min.css" />
-            <link rel="stylesheet" href="//cdn.materialdesignicons.com/1.2.65/css/materialdesignicons.min.css">
             <link rel="stylesheet" href="${config.staticUrl}/static/build/main.css">
-            <script src="https://storage.googleapis.com/code.getmdl.io/1.0.6/material.min.js"></script>
-            <script>
-                (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-                (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-                m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-                })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
-            </script>
-            <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-            <!-- Yandex.Metrika counter -->
-            <script type="text/javascript">
-               (function (d, w, c) {
-                   (w[c] = w[c] || []).push(function() {
-                       try {
-                           w.yaCounter35666924 = new Ya.Metrika({
-                               id:35666924,
-                               clickmap:true,
-                               trackLinks:true,
-                               accurateTrackBounce:true
-                           });
-                       } catch(e) { }
-                   });
-
-                   var n = d.getElementsByTagName("script")[0],
-                       s = d.createElement("script"),
-                       f = function () { n.parentNode.insertBefore(s, n); };
-                   s.type = "text/javascript";
-                   s.async = true;
-                   s.src = "https://mc.yandex.ru/metrika/watch.js";
-
-                   if (w.opera == "[object Opera]") {
-                       d.addEventListener("DOMContentLoaded", f, false);
-                   } else { f(); }
-               })(document, window, "yandex_metrika_callbacks");
-            </script>
-            <noscript>
-                <div>
-                    <img src="https://mc.yandex.ru/watch/35666924" style="position:absolute; left:-9999px;" alt="" />
-                </div>
-            </noscript>
-            <!-- /Yandex.Metrika counter -->
         </head>
         <body>
         <div id="react-view">${componentHTML}</div>
@@ -223,5 +183,5 @@ function renderHTML({ componentHTML, initialState, metaData, config }) {
 const PORT = process.env.PORT || 3001;
 
 app.listen(PORT, () => {
-    console.log(`Server listening on: ${PORT}`);
+    console.log(`Server listening one: ${PORT}`);
 });
