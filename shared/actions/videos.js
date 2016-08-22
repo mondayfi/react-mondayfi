@@ -9,7 +9,7 @@ export function getLatest() {
 	            .then((response) => {
 	                dispatch({
 	                    type   : LOAD_LATEST_VIDEO_SUCCESS,
-	                    videos : response
+	                    video : response
 	                });
 	            }).catch(error => {
 	                dispatch({
@@ -21,7 +21,7 @@ export function getLatest() {
 
 }
 
-export function loadVideo({ params:{ slug } }) {
+export function loadVideo(slug) {
 	return (dispatch) => {
             return api.videos.get()
 	            .then((response) => {

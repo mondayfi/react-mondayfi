@@ -26,11 +26,11 @@ export default class FrontPage extends Component {
     	});
         
         return (<div className={frontPageClasses}>
-            <FrontHero />
-            <WhatWeDo />
-            <CompetenceBullets />
-            <VlogLiftup {...videoEpisode} />
-            <WhoWeAre />
+            // <FrontHero />
+            // <WhatWeDo />
+            // <CompetenceBullets />
+            // <VlogLiftup {...videoEpisode} />
+            // <WhoWeAre />
         </div>);
     }
 }

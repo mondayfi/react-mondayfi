@@ -18,24 +18,30 @@ export default function connectDataFetchers(Component, actionCreators) {
         };
 
         static fetchData({ dispatch, params = {}, query = {}, locale }) {
+            console.log(actionCreators)
             return Promise.all(
                 actionCreators.map(actionCreator => dispatch(actionCreator({ params, query, locale })))
             );
         }
 
+        componentWillUpdate(nextProps, nextState) {
+            console.log('fetcher will update')  
+        }
+
         componentDidUpdate(prevProps) {
             const { location } = this.props;
             const { location: prevLocation } = prevProps;
-
+            console.log(location);
             const isUrlChanged = (location.pathname !== prevLocation.pathname)
                               || (location.search !== prevLocation.search);
-            console.log('isUrlChanged')
+            console.log('isUrlChanged', isUrlChanged)
             if (isUrlChanged) {
                 this._fetchDataOnClient();
             }
         }
 
         componentDidMount() {
+            console.log('fetcher mounted');
             if (!IS_FIRST_MOUNT_AFTER_LOAD) {
                 this._fetchDataOnClient();
             }

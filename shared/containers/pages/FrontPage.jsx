@@ -1,5 +1,6 @@
 import React, { Component, PropTypes } from 'react';
 import { connect }                     from 'react-redux';
+import { Link } from 'react-router';
 import _ from 'lodash';
 
 import { getLatest } from '../../actions/videos';
@@ -19,7 +20,9 @@ class IndexPageContainer extends Component {
 
     render() {
         const { getLatestVideo } = this.props;
-        return <FrontPage videoEpisode={ getLatestVideo.episode } />;
+        console.log(this.props);
+        return <div><Link to={`/vlog/our-biggest-mistakes`}>{ 'jee' }</Link></div>;
+        // return <FrontPage videoEpisode={ getLatestVideo.episode } />;
     }
 }
 

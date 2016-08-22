@@ -2,7 +2,9 @@ import React, { Component, PropTypes } from 'react';
 import { connect }                     from 'react-redux';
 import _ from 'lodash';
 
-import { loadVideo } from '../../actions/videos';
+import { bindActionCreators } from 'redux';
+import * as VideoActionCreators from '../../actions/videos';
+import fetchOnUpdate from '../../decorators/fetchOnUpdate';
 import connectDataFetchers from '../../lib/connectDataFetchers.jsx';
 import EmbedEvents         from '../../utils/EmbedEventsUtil';
 import config              from '../../config';
@@ -15,18 +17,21 @@ const embedEvents = new EmbedEvents({
     embedOrigin: config.embedOrigin
 });
 
-class VideoPageContainer extends Component {
+@connect(state => ({
+  videos: state.videos
+}), dispatch => ({
+  actions: bindActionCreators(VideoActionCreators, dispatch)
+}))
+@fetchOnUpdate([ 'slug' ], (params, actions) => {
+	console.log('jee')
+  	actions.loadVideo(params.slug);
+})
+export default class VideoPageContainer extends Component {
 
     render() {
-        const { video } = this.props;
+        const { videos } = this.props;
+        const video = videos.video || {};
         return <VideoPage video={video} />;
     }
 }
 
-function mapStateToProps({loadVideo: {video}}) { 
-    return { video };
-}
-
-export default connect(mapStateToProps)(
-    connectDataFetchers(VideoPageContainer, [ loadVideo ])
-);

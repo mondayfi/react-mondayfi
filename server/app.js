@@ -173,8 +173,6 @@ function renderHTML({ componentHTML, initialState, metaData, config }) {
             window.__CONFIG__ = ${JSON.stringify(config)};
             window.__INITIAL_STATE__ = ${JSON.stringify(initialState)};
           </script>
-
-          <script type="application/javascript" src="${config.staticUrl}/static/build/main.js"></script>
         </body>
         </html>
     `;

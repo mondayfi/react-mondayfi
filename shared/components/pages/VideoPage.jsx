@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import cx    from 'classnames';
 import VlogLiftup from '../VlogLiftup.jsx';
-import { chain } from 'lodash';
+import { chain, isEmpty } from 'lodash';
 
 
 if (process.env.BROWSER) {
@@ -23,10 +23,17 @@ export default class FrontPage extends Component {
     	const frontPageClasses = cx({
     		'mo-front-page': true
     	});
+        console.log(video);
+        if(isEmpty(video)) {
+            return <div></div>;
+        }
+        const description = video.description ? video.description.en :'';
+
+            
         
         return (<div className={frontPageClasses}>
             <VlogLiftup {...video} />
-            { this.nl2br(video.description.en) }
+            { this.nl2br(description) }
         </div>);
     }
 }
