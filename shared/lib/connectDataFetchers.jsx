@@ -36,6 +36,8 @@ export default function connectDataFetchers(Component, actionCreators) {
         }
 
         componentDidMount() {
+            console.log('MOUNT');
+            console.log(this.props);
             if (!IS_FIRST_MOUNT_AFTER_LOAD) {
                 this._fetchDataOnClient();
             }

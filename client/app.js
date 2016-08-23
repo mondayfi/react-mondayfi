@@ -33,13 +33,23 @@ function loadLocale(localeToLoad) {
     });
 }
 
+function scrollTop() {
+  let {
+    action
+  } = this.state.location;
+
+  if (action === 'PUSH') {
+    window.scrollTo(0, 0);
+  }
+}
+
 loadLocale(locale).then(localeData => {
     const i18nTools = new i18n.Tools({ localeData, locale });
 
     ReactDOM.render(
         <Provider store={store}>
             <i18n.Provider i18n={i18nTools}>
-                <Router children={routes} history={history} />
+                <Router onUpdate={  } children={routes} history={history} />
             </i18n.Provider>
         </Provider>,
 
