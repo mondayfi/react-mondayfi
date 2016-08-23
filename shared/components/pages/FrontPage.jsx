@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import cx    from 'classnames';
-
+import { isEmpty } from 'lodash'
 // import { Tab, Tabs } from 'react-mdl/lib/Tabs';
 // import { Card }      from 'react-mdl/lib/Card';
 // import Spinner       from 'react-mdl/lib/Spinner';
@@ -20,17 +20,30 @@ if (process.env.BROWSER) {
 export default class FrontPage extends Component {
 
     render() {
-        const { videoEpisode } = this.props;
-    	const frontPageClasses = cx({
-    		'mo-front-page': true
-    	});
+      const { videoEpisode } = this.props;
+      const frontPageClasses = cx({
+        'mo-front-page': true
+      });
+
+        if(isEmpty(videoEpisode)) {
+          return (
+            <div className={frontPageClasses}>
+              <FrontHero />
+              <WhatWeDo />
+              <CompetenceBullets />
+              <WhoWeAre />
+            </div>
+          );
+        }
         
-        return (<div className={frontPageClasses}>
+        return (
+          <div className={frontPageClasses}>
             <FrontHero />
             <WhatWeDo />
             <CompetenceBullets />
             <VlogLiftup {...videoEpisode} />
             <WhoWeAre />
-        </div>);
-    }
+          </div>
+        );
+    }   
 }

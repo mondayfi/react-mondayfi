@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router';
 
 export default class WhoWeAre extends Component {
     render() {
@@ -14,10 +15,10 @@ export default class WhoWeAre extends Component {
                     <p>We are <strong>Pyry</strong> and <strong>Samuel</strong>.</p><br />
                     <div className='mo-flexbox' id='contact'>
                         <div className='mo-flexbox__item mo-flexbox__item--border mo-flexbox__item--centerphone'>
-                            <div className='mo-authorimage mo-authorimage--left'>
+                            <Link to="/pyry" className='mo-authorimage mo-authorimage--left'>
                                 <div className='mo-authorimage__imagefilter'></div>
                                 <img className='mo-authorimage__image' src='/static/images/pyry.jpg' alt='' />
-                            </div>
+                            </Link>
                             <div className='mo-author'>Pyry Kovanen</div>
                             <a href='tel:+358408098364' className='mo_linkicon'>
                                 <i className='fa fa-phone'></i>
@@ -36,10 +37,10 @@ export default class WhoWeAre extends Component {
                         </div>
 
                         <div className='mo-flexbox__item mo-flexbox__item--centerphone'>
-                            <div className='mo-authorimage mo-authorimage--right'>
+                            <Link to='/samuel' className='mo-authorimage mo-authorimage--right'>
                                 <div className='mo-authorimage__imagefilter'></div>
                                 <img className='mo-authorimage__image' src='/static/images/samuel.jpg' alt='' />
-                            </div>
+                            </Link>
                             <div className='mo-author'>Samuel Klinkmann</div>
                             <a href='tel:+358404869209' className='mo_linkicon'>
                                 <i className='fa fa-phone'></i>

@@ -49,7 +49,7 @@ loadLocale(locale).then(localeData => {
     ReactDOM.render(
         <Provider store={store}>
             <i18n.Provider i18n={i18nTools}>
-                <Router onUpdate={  } children={routes} history={history} />
+                <Router onUpdate={ scrollTop } children={routes} history={history} />
             </i18n.Provider>
         </Provider>,
 
