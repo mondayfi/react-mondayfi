@@ -24,10 +24,11 @@ export function getLatest() {
 export function loadVideo({ params:{ slug } }) {
 	return (dispatch) => {
             return api.videos.get()
+            	.then(r => _.sortBy(r, 'time').reverse())
 	            .then((response) => {
 	                dispatch({
 	                    type   : LOAD_ONE_VIDEO_SUCCESS,
-	                    video : _.find(response, d => d.slug.en === slug )
+	                    video : response
 	                });
 	            }).catch(error => {
 	                dispatch({

@@ -29,15 +29,12 @@ export default function connectDataFetchers(Component, actionCreators) {
 
             const isUrlChanged = (location.pathname !== prevLocation.pathname)
                               || (location.search !== prevLocation.search);
-            console.log('isUrlChanged')
             if (isUrlChanged) {
                 this._fetchDataOnClient();
             }
         }
 
         componentDidMount() {
-            console.log('MOUNT');
-            console.log(this.props);
             if (!IS_FIRST_MOUNT_AFTER_LOAD) {
                 this._fetchDataOnClient();
             }
