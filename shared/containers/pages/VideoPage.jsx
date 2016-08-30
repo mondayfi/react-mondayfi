@@ -26,7 +26,7 @@ class VideoPageContainer extends Component {
     const idxOfVideo = _.findIndex(video, v => v.slug.en === slug);
     const start = idxOfVideo === 0 ? 0 : idxOfVideo - 1;
     const end = start + ARRAY_LENGTH + 1;
-    const slicedArr = _.slice(video, start, end);
+    const slicedArr = _.slice(video, 0, end);
     return start === 0 ? [undefined].concat(slicedArr) : slicedArr;
   }
 

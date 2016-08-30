@@ -48,9 +48,9 @@ export default class FrontPage extends Component {
       const currentVideo = videos[1];
       const olderVideos = _.drop(videos, 2);
       const nextVideo = _.head(olderVideos);
-      console.log(prevVideo);
-      console.log(currentVideo);
-      console.log(nextVideo);
+      console.log('prevVideo', prevVideo);
+      console.log('currentVideo', currentVideo.slug.en);
+      console.log('nextVideo', nextVideo.slug.en);
       return (
         <div className={frontPageClasses}>
           { this.prevLink(prevVideo) }
