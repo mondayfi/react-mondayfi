@@ -1,0 +1,88 @@
+// Do not edit _icons.scss directly!!!!!!!
+
+@font-face {
+  font-family: "jalo-icons";
+  src: url('/static/fonts/jalo-icons.eot');
+  src: url('/static/fonts/jalo-icons.eot?#iefix') format('eot'),
+    url('/static/fonts/jalo-icons.woff') format('woff'),
+    url('/static/fonts/jalo-icons.ttf') format('truetype'),
+    url('/static/fonts/jalo-icons.svg#jalo-icons') format('svg');
+}
+
+.mo-icon {
+  font-size: 16px;
+  font-family: "jalo-icons";
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-style: normal;
+  font-variant: normal;
+  font-weight: normal;
+  text-decoration: none;
+  text-transform: none;
+  transform: translate(0, 0);
+  display: inline-block;
+  vertical-align: middle;
+}
+
+@function icon-char($filename) {
+  $char: "";
+
+  @if $filename == envelope {
+    $char: "\E001";
+  }
+  @if $filename == facebook {
+    $char: "\E002";
+  }
+  @if $filename == heart {
+    $char: "\E003";
+  }
+  @if $filename == linkedin {
+    $char: "\E004";
+  }
+  @if $filename == medium {
+    $char: "\E005";
+  }
+  @if $filename == phone {
+    $char: "\E006";
+  }
+  @if $filename == spotify {
+    $char: "\E007";
+  }
+  @if $filename == twitter {
+    $char: "\E008";
+  }
+
+  @return $char;
+}
+
+@mixin icon($filename, $insert: before) {
+  &:#{$insert} {
+    @extend .mo-icon;
+    content: icon-char($filename);
+  }
+}
+
+.mo-icon--envelope {
+  @include icon(envelope);
+}
+.mo-icon--facebook {
+  @include icon(facebook);
+}
+.mo-icon--heart {
+  @include icon(heart);
+}
+.mo-icon--linkedin {
+  @include icon(linkedin);
+}
+.mo-icon--medium {
+  @include icon(medium);
+}
+.mo-icon--phone {
+  @include icon(phone);
+}
+.mo-icon--spotify {
+  @include icon(spotify);
+}
+.mo-icon--twitter {
+  @include icon(twitter);
+}

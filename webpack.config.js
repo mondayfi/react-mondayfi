@@ -47,5 +47,11 @@ module.exports = {
     eslint: {
         configFile: '.eslintrc'
     },
-    sassResources: [ './shared/assets/resources/variables.scss', './shared/assets/resources/mixins.scss', './shared/assets/resources/font-declarations.scss' , './shared/assets/resources/grid.scss' ]
+    sassResources: [ 
+    './shared/assets/resources/_icons.scss', 
+    './shared/assets/resources/variables.scss', 
+    './shared/assets/resources/mixins.scss', 
+    './shared/assets/resources/font-declarations.scss',
+    './shared/assets/resources/helper-classes.scss', 
+    './shared/assets/resources/grid.scss' ]
 };

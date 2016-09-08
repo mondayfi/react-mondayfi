@@ -6,7 +6,7 @@ const SamuelPage = props => {
       <div className='mo-hero mo-hero--narrow'>
         <div className='mo-hero__slide'>
           <div className='mo-hero__content mo-grid'>
-            <a href='/'><img src='images/monday_logo.svg' className='mo-hero__logo' /></a>
+            <a href='/'><img src='/static/images/monday_logo.svg' className='mo-hero__logo' /></a>
           </div>
         </div>
       </div>
@@ -14,7 +14,7 @@ const SamuelPage = props => {
         <div className='mo-grid'>
           <div className='mo-stand-alone'>
             <div className='mo-authorimage mo-authorimage--stand-alone'>
-              <img className='mo-authorimage__image' src='images/samuel.jpg' alt='Samuel Klinkmann' />
+              <img className='mo-authorimage__image' src='/staticimages/samuel.jpg' alt='Samuel Klinkmann' />
             </div>
             <a href='tel:+358404869209' className='mo_linkicon  mo_linkicon--black'><i className='mo-icon mo-icon--phone'></i><span className='mo_linkicon__link'>040 486 92 09</span></a><br />
             <a href='mailto:samuel@monday.fi' className='mo_linkicon  mo_linkicon--black'><i className='mo-icon mo-icon--envelope'></i><span className='mo_linkicon__link'>samuel@monday.fi</span></a><br />
@@ -41,14 +41,14 @@ const SamuelPage = props => {
 
         <p className='mo-textitalic'>'Samuel can best be described as the glue between designers and developers. Samuel is a great asset when you need responsive interfaces for demanding projects. I can warmly recommend him.'<br /></p>
 
-        <div className='mo-authorimage mo-authorimage--small'><img className='mo-authorimage__image' src='./images/jouni.jpg' alt='Jouni Linkola' /></div><p>- Jouni Linkola, Service Design lead at <a href='http://elisa.fi' target='_blank' className='mo_linkicon__link'>Elisa Oy</a></p>
+        <div className='mo-authorimage mo-authorimage--small'><img className='mo-authorimage__image' src='/static/images/jouni.jpg' alt='Jouni Linkola' /></div><p>- Jouni Linkola, Service Design lead at <a href='http://elisa.fi' target='_blank' className='mo_linkicon__link'>Elisa Oy</a></p>
         </div>
       </div>
 
       <div className='mo-colorwrap mo-colorwrap--athensgrey mo-colorwrap--largepadding'>
         <div className='mo-grid'>
         <p className='mo-textitalic'>'Samuel did a short project for Veikkaus. He helped us to improve the usability of the Veikkaus.fi mobile page. Samuel is a very competent UX developer and a good team player'<br /></p>
-        <div className='mo-authorimage mo-authorimage--small'><img className='mo-authorimage__image' src='./images/melina.jpg' alt='Melina Kukkasela' /></div>
+        <div className='mo-authorimage mo-authorimage--small'><img className='mo-authorimage__image' src='/static/images/melina.jpg' alt='Melina Kukkasela' /></div>
         <p>- Melina Kukkasela, UX Lead at <a href='http://veikkaus.fi' target='_blank' className='mo_linkicon__link'>Veikkaus Oy</a></p>
         </div>
       </div>

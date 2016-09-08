@@ -11,7 +11,10 @@ import WhatWeDo from '../WhatWeDo.jsx';
 import CompetenceBullets from '../CompetenceBullets.jsx';
 import WhoWeAre from '../WhoWeAre.jsx';
 import VlogLiftup from '../VlogLiftup.jsx';
-
+import Testimonial from '../Testimonial.jsx';
+import SomeBlock from '../SomeBlock.jsx';
+import Footer from '../Footer.jsx';
+import FooterLove from '../FooterLove.jsx';
 
 if (process.env.BROWSER) {
     require('./FrontPage.scss');
@@ -32,6 +35,10 @@ export default class FrontPage extends Component {
               <WhatWeDo />
               <CompetenceBullets />
               <WhoWeAre />
+              <Testimonial />
+              <SomeBlock />
+              <Footer />
+              <FooterLove />
             </div>
           );
         }
@@ -43,6 +50,10 @@ export default class FrontPage extends Component {
             <CompetenceBullets />
             <VlogLiftup {...videoEpisode} />
             <WhoWeAre />
+            <Testimonial />
+            <SomeBlock />
+            <Footer />
+            <FooterLove />
           </div>
         );
     }   

@@ -6,7 +6,7 @@ const PyryPage = props => {
       <div className='mo-hero mo-hero--narrow'>
         <div className='mo-hero__slide'>
           <div className='mo-hero__content mo-grid'>
-            <a href='/'><img src='images/monday_logo.svg' className='mo-hero__logo'></img></a>
+            <a href='/'><img src='/static/images/monday_logo.svg' className='mo-hero__logo'></img></a>
           </div>
         </div>
       </div>
@@ -14,7 +14,7 @@ const PyryPage = props => {
         <div className='mo-grid'>
           <div className='mo-stand-alone'>
             <div className='mo-authorimage mo-authorimage--stand-alone'>
-              <img className='mo-authorimage__image' src='images/pyry.jpg' alt='Pyry Kovanen'></img>
+              <img className='mo-authorimage__image' src='/static/images/pyry.jpg' alt='Pyry Kovanen'></img>
             </div>
             <a href='tel:+358408098364' className='mo_linkicon  mo_linkicon--black'><i className='mo-icon mo-icon--phone'></i><span className='mo_linkicon__link'>040 809 83 64</span></a><br />
             <a href='mailto:pyry@monday.fi' className='mo_linkicon  mo_linkicon--black'><i className='mo-icon mo-icon--envelope'></i><span className='mo_linkicon__link'>pyry@monday.fi</span></a><br />
