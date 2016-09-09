@@ -14,6 +14,9 @@ module.exports = {
         }),
         new ExtractTextPlugin("[name].css")
     ],
+    devServer: {
+        headers: { "Access-Control-Allow-Origin": "*" }
+    },
     output: {
         path: __dirname + '/public/static/build/',
         filename: "main.js",
