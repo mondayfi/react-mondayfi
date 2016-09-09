@@ -57,7 +57,18 @@
 
 @mixin icon($filename, $insert: before) {
   &:#{$insert} {
-    @extend .mo-icon;
+    font-size: 16px;
+    font-family: "jalo-icons";
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    font-style: normal;
+    font-variant: normal;
+    font-weight: normal;
+    text-decoration: none;
+    text-transform: none;
+    transform: translate(0, 0);
+    display: inline-block;
+    vertical-align: middle;
     content: icon-char($filename);
   }
 }

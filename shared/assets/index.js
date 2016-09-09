@@ -1,4 +1,9 @@
 import './normalize.css';
+import './resources/_icons.scss'
+import './resources/font-declarations.scss'
+import './resources/helper-classes.scss' 
+import './resources/grid.scss'
+import './resources/_icons.scss'
 
 import './mo-author.scss'
 import './mo-authorimage.scss'

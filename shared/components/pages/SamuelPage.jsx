@@ -14,7 +14,7 @@ const SamuelPage = props => {
         <div className='mo-grid'>
           <div className='mo-stand-alone'>
             <div className='mo-authorimage mo-authorimage--stand-alone'>
-              <img className='mo-authorimage__image' src='/staticimages/samuel.jpg' alt='Samuel Klinkmann' />
+              <img className='mo-authorimage__image' src='/static/images/samuel.jpg' alt='Samuel Klinkmann' />
             </div>
             <a href='tel:+358404869209' className='mo_linkicon  mo_linkicon--black'><i className='mo-icon mo-icon--phone'></i><span className='mo_linkicon__link'>040 486 92 09</span></a><br />
             <a href='mailto:samuel@monday.fi' className='mo_linkicon  mo_linkicon--black'><i className='mo-icon mo-icon--envelope'></i><span className='mo_linkicon__link'>samuel@monday.fi</span></a><br />

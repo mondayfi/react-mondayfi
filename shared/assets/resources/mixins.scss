@@ -25,12 +25,15 @@
     }
 }
 
-%clearfix {
-  &:after {
-    content: "";
-    display: table;
-    clear: both;
-  }
+@mixin clearfix() {
+    &:before,
+    &:after {
+        content: "";
+        display: table;
+    }
+    &:after {
+        clear: both;
+    }
 }
 
 @mixin font-title {

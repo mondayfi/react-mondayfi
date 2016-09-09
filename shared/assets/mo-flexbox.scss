@@ -1,5 +1,5 @@
 .no-flexbox {
-  .mo-flexbox {
+  .mo-flexbox {
     display: block;
 
     .mo-flexbox__item {
@@ -9,7 +9,7 @@
 }
 
 .mo-flexbox {
-  @extend %clearfix;
+  @include clearfix();
   align-items: stretch;
   justify-content: space-between;
   position: relative;

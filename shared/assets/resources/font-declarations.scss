@@ -7,7 +7,7 @@ body {
 }
 
 h1,
-%mo-h1 {
+.mo-h1 {
   @include font-title;
   letter-spacing: -1px;
   font-size: 48px;
@@ -18,12 +18,12 @@ h1,
     font-size: 64px;
   }
 }
-%mo-h1--fontbody {
+.mo-h1--fontbody {
   @include font-body;
 }
 
 h2,
-%mo-h2 {
+.mo-h2 {
   @include font-title;
   letter-spacing: -1px;
   font-size: 26px;
@@ -33,12 +33,12 @@ h2,
     font-size: 42px;
   }
 }
-%mo-h2--fontbody {
+.mo-h2--fontbody {
   @include font-body;
 }
 
 h3,
-%mo-h3 {
+.mo-h3 {
   font-size: 16px;
   line-height: 1.5em;
   font-weight: 200;
