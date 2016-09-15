@@ -17,13 +17,6 @@ const embedEvents = new EmbedEvents({
 
 class VideoPageContainer extends Component {
 
-  getStart(idxOfVideo) {
-    if(idxOfVideo < 2) {
-      return 0;
-    }
-    return idxOfVideo - 1;
-  }
-
   get videoArrayWithBuffer() {
     const ARRAY_LENGTH = 6;
     const { video: { video }, routeParams: { slug } } = this.props;
@@ -31,11 +24,8 @@ class VideoPageContainer extends Component {
       return [];
     }
     const idxOfVideo = _.findIndex(video, v => v.slug.en === slug);
-    console.log('idxOfVideo', idxOfVideo)
-    const start = this.getStart(idxOfVideo);
-    console.log('start', start)
+    const start = idxOfVideo < 2 ? 0 : idxOfVideo - 1;
     const end = start + ARRAY_LENGTH + 1;
-    console.log('end', end)
     const slicedArr = _.slice(video, start, end);
     return idxOfVideo === 0 ? [undefined].concat(slicedArr) : slicedArr;
   }
