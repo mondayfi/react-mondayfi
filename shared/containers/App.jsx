@@ -28,3 +28,10 @@ export default class App extends Component {
         );
     }
 }
+
+App.propTypes = {
+        location : PropTypes.object,
+        routes   : PropTypes.array,
+        children : PropTypes.object,
+        history  : PropTypes.object
+};

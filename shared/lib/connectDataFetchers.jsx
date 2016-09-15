@@ -10,11 +10,7 @@ export default function connectDataFetchers(Component, actionCreators) {
         static propTypes = {
             dispatch : PropTypes.func.isRequired,
             params   : PropTypes.object.isRequired,
-            location : PropTypes.shape({
-                pathname : PropTypes.string.required,
-                search   : PropTypes.string,
-                query    : PropTypes.string.object
-            }).isRequired
+            location : PropTypes.object.isRequired
         };
 
         static fetchData({ dispatch, params = {}, query = {}, locale }) {

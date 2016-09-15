@@ -5,7 +5,7 @@ import querystring  from 'querystring';
 import React                     from 'react';
 import ReactDOM                  from 'react-dom/server';
 import { Provider }              from 'react-redux';
-import { RoutingContext, match } from 'react-router';
+import { Router, RouterContext, match } from 'react-router';
 import escapeHTML                from 'lodash/string/escape';
 
 import { fetchComponentsData,
@@ -104,7 +104,7 @@ app.use((req, res) => {
 
                 const componentHTML = ReactDOM.renderToString(
                     <Provider store={store}>
-                        <RoutingContext {...renderProps}/>
+                        <RouterContext {...renderProps} />
                     </Provider>
                 );
 
