@@ -3,7 +3,6 @@
 
     "plugins": [
         "react",
-        "no-require-lodash",
         "prefer-spread",
         "jquery",
         "fetch",
@@ -262,9 +261,6 @@
         "max-depth": [0, 4],
         "max-params": [2, 4],
         "no-bitwise": 2,
-
-        // no require lodash
-        "no-require-lodash/no-require-lodash": 2,
 
         // prefer spread
         "prefer-spread/prefer-object-spread": [2, "includeNearEquivalents"],

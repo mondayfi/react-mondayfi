@@ -4,7 +4,6 @@ import _ from 'lodash';
 import cx    from 'classnames';
 import VlogLiftup from '../VlogLiftup.jsx';
 import ThumbnailLink from '../ThumbnailLink.jsx';
-import { chain } from 'lodash';
 
 
 if (process.env.BROWSER) {
@@ -15,7 +14,7 @@ export default class FrontPage extends Component {
 
     nl2br(string) {
       const arrayOfText = string.split('\n');
-      return chain(arrayOfText)
+      return _(arrayOfText)
         .compact()
         .map((d, i) => <p key={i}>{d}</p>)
         .value(); 
@@ -48,16 +47,13 @@ export default class FrontPage extends Component {
       const currentVideo = videos[1];
       const olderVideos = _.drop(videos, 2);
       const nextVideo = _.head(olderVideos);
-      console.log('prevVideo', prevVideo);
-      console.log('currentVideo', currentVideo.slug.en);
-      console.log('nextVideo', nextVideo.slug.en);
       return (
         <div className={frontPageClasses}>
           { this.prevLink(prevVideo) }
           <VlogLiftup {...currentVideo} />
           { this.nextLink(nextVideo) }
           <div>
-            { olderVideos.map(v => <ThumbnailLink thumb={v.thumb} slug={v.slug.en} />) }
+            { olderVideos.map((v, i) => <ThumbnailLink key={i} thumb={v.thumb} slug={v.slug.en} />) }
           </div>
           { this.nl2br(currentVideo.description.en) }
         </div>
