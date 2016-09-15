@@ -3,13 +3,12 @@ const DEFAULT_LOCALE = 'en';
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
-import { Router } from 'react-router';
+import { Router, browserHistory } from 'react-router';
 import fetch from 'isomorphic-fetch';
 import cookie from 'cookie';
 
 import configureStore from '../shared/store/configureStore';
 import routes from '../shared/routes.jsx';
-import history from '../shared/history.js';
 import i18n from '../shared/i18n';
 
 const initialState = window.__INITIAL_STATE__ || {};
@@ -49,7 +48,7 @@ loadLocale(locale).then(localeData => {
     ReactDOM.render(
         <Provider store={store}>
             <i18n.Provider i18n={i18nTools}>
-                <Router onUpdate={ scrollTop } children={routes} history={history} />
+                <Router onUpdate={ scrollTop } children={routes} history={browserHistory} />
             </i18n.Provider>
         </Provider>,
 
