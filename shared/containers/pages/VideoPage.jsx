@@ -17,25 +17,74 @@ const embedEvents = new EmbedEvents({
 
 class VideoPageContainer extends Component {
 
-  get videoArrayWithBuffer() {
-    const ARRAY_LENGTH = 6;
+  constructor() {
+    super();
+    this.state = {
+      currentIndex: null
+    };
+  }
+
+  updateIndexOnPropChange() {
     const { video: { video }, routeParams: { slug } } = this.props;
     if(_.isEmpty(video)) {
+      return;
+    }
+    const foundIndex = _.findIndex(video, v => v.slug.en === slug);
+    this.setState({
+      currentIndex: foundIndex
+    });
+  }
+
+  componentDidUpdate(nextProps, nextState) {
+    const currentSlug = _.get(this.props, 'routeParams.slug', null);
+    const nextSlug = _.get(nextProps, 'routeParams.slug', null);
+    if(_.isEqual(this.props, nextProps)) {
+      return; 
+    }
+    this.updateIndexOnPropChange();
+  }
+
+  componentDidMount() {
+    this.updateIndexOnPropChange();
+  }
+
+  get videoThumbs() {
+    const THUMBNAILS_VISIBLE = 5;
+    const thumbnailsOnSides = (THUMBNAILS_VISIBLE - 1) / 2;
+    const { currentIndex } = this.state;
+    const { video: { video }, routeParams: { slug } } = this.props;
+
+    if(_.isNull(currentIndex)) {
       return [];
     }
-    const idxOfVideo = _.findIndex(video, v => v.slug.en === slug);
-    const start = idxOfVideo < 2 ? 0 : idxOfVideo - 1;
-    const end = start + ARRAY_LENGTH + 1;
-    const slicedArr = _.slice(video, start, end);
-    return idxOfVideo === 0 ? [undefined].concat(slicedArr) : slicedArr;
+    const maxIndex = _.size(video);
+    const indexFromTheEnd = maxIndex - this.state.currentIndex;
+
+    let start;
+    let end;
+    if(this.state.currentIndex <= thumbnailsOnSides) {
+      start = 0;
+      end = THUMBNAILS_VISIBLE;
+    } else if(indexFromTheEnd <= thumbnailsOnSides) {
+      start = maxIndex - THUMBNAILS_VISIBLE;
+      end = maxIndex;
+    } else {
+      start = this.state.currentIndex - thumbnailsOnSides;
+      end = start + THUMBNAILS_VISIBLE;
+    }
+    return _.slice(video, start, end)
   }
 
   render() {
-    const videos = this.videoArrayWithBuffer;
-    if(_.isEmpty(videos)) {
+    const { routeParams: { slug } } = this.props;
+    const { currentIndex } = this.state;
+
+    if(_.isNull(currentIndex)) {
       return <div></div>;
     }
-    return <VideoPage videos={ videos } />;
+
+    const videos = this.videoThumbs;
+    return <VideoPage currentSlug={ slug } videos={ videos } />;
   }
 }
 

@@ -20,43 +20,41 @@ export default class FrontPage extends Component {
         .value(); 
     }
 
-    prevLink(prevVideo) {
-      if(_.isUndefined(prevVideo)) {
+    directionLink(video, label) {
+      if(_.isUndefined(video)) {
         return;
       }
-      return <Link to={`/vlog/${prevVideo.slug.en}`}>Prev</Link>
-    }
-
-    nextLink(nextVideo) {
-      if(_.isUndefined(nextVideo)) {
-        return;
-      }
-      return <Link to={`/vlog/${nextVideo.slug.en}`}>Next</Link>
+      return <Link to={`/vlog/${video.slug.en}`}>{label}</Link>
     }
 
     render() {
-      const { video, videos } = this.props;
+      const { currentSlug, videos } = this.props;  
       const frontPageClasses = cx({
         'mo-front-page': true
       });
-
       if(_.isEmpty(videos)) {
           return <div></div>
       }
-      const prevVideo = videos[0];
-      const currentVideo = videos[1];
-      const olderVideos = _.drop(videos, 2);
-      const nextVideo = _.head(olderVideos);
+      const currentIdx = _.findIndex(videos, v => v.slug.en === currentSlug);
+      const prevVideoIdx = currentIdx - 1;
+      const nextVideoIdx = currentIdx + 1;
+      const currentVideo = videos[currentIdx];
+      const prevVideo = videos[prevVideoIdx];
+      const nextVideo = videos[nextVideoIdx];
       return (
         <div className={frontPageClasses}>
-          { this.prevLink(prevVideo) }
+          { this.directionLink(prevVideo, '<<<') }
           <VlogLiftup {...currentVideo} />
-          { this.nextLink(nextVideo) }
+          { this.directionLink(nextVideo, '>>>') }
           <div>
-            { olderVideos.map((v, i) => <ThumbnailLink key={i} thumb={v.thumb} slug={v.slug.en} />) }
+            { 
+              videos.map((v, i) => {
+                return <ThumbnailLink isCurrent={ currentIdx === i  } key={i} thumb={v.thumb} slug={v.slug.en} />;
+              })
+            }
           </div>
           { this.nl2br(currentVideo.description.en) }
         </div>
-        );
+      );
     }
 }
