@@ -24,7 +24,7 @@ export default class FrontPage extends Component {
       if(_.isUndefined(video)) {
         return;
       }
-      return <Link to={`/vlog/${video.slug.en}`}>{label}</Link>
+      return <Link to={`/vlog/${video.slug.en}`}>{label}</Link>;
     }
 
     render() {

@@ -18,79 +18,79 @@ export function fetchComponentsData({ dispatch, components, params, query, local
 }
 
 export function getMetaDataFromState({ route, state, params = {}, query = {}, lang }) {
-    if (route === '/activations/:id' || route === '/activations/:id/:title') {
-        const { name, message, pictureURL } = state.currentActivation.activation;
+    // if (route === '/activations/:id' || route === '/activations/:id/:title') {
+    //     const { name, message, pictureURL } = state.currentActivation.activation;
 
-        return {
-            type        : 'ACTIVATION',
-            title       : name,
-            siteName    : "Monday Digital",
-            image       : pictureURL ? pictureURL.replace('svg', 'png') : '',
-            description : message
-        };
-    }
+    //     return {
+    //         type        : 'ACTIVATION',
+    //         title       : name,
+    //         siteName    : "Monday Digital",
+    //         image       : pictureURL ? pictureURL.replace('svg', 'png') : '',
+    //         description : message
+    //     };
+    // }
 
-    if (route === '/result/:id/:userId' && state.currentActivation.activation) {
-        const { name, pictureURL, message, userQuizSession } = state.currentActivation.activation;
+    // if (route === '/result/:id/:userId' && state.currentActivation.activation) {
+    //     const { name, pictureURL, message, userQuizSession } = state.currentActivation.activation;
 
-        const greeting = _getGreeting(state.currentAssessmentSystem.assessmentSystem, userQuizSession.score);
+    //     const greeting = _getGreeting(state.currentAssessmentSystem.assessmentSystem, userQuizSession.score);
 
-        const sharePhrases = {
-            en: 'I have passed test "{name}" and gained {score}%. My result is: "{greeting}"'
-        };
+    //     const sharePhrases = {
+    //         en: 'I have passed test "{name}" and gained {score}%. My result is: "{greeting}"'
+    //     };
 
-        const title = strformat(sharePhrases[lang], { name, score: userQuizSession.score, greeting: greeting.phrase });
-        const greetingDescription = greeting.description || '';
+    //     const title = strformat(sharePhrases[lang], { name, score: userQuizSession.score, greeting: greeting.phrase });
+    //     const greetingDescription = greeting.description || '';
 
-        return {
-            type        : 'RESULT',
-            title,
-            siteName    : "Monday Digital",
-            image       : pictureURL ? pictureURL.replace('svg', 'png') : '',
-            description : greetingDescription || message
-        };
-    }
+    //     return {
+    //         type        : 'RESULT',
+    //         title,
+    //         siteName    : "Monday Digital",
+    //         image       : pictureURL ? pictureURL.replace('svg', 'png') : '',
+    //         description : greetingDescription || message
+    //     };
+    // }
 
-    if (route === '/share/:key') {
-        const { customShareInfo } = clientConfig;
-        const { key } = params;
+    // if (route === '/share/:key') {
+    //     const { customShareInfo } = clientConfig;
+    //     const { key } = params;
 
-        if (key && customShareInfo && customShareInfo[key]) {
-            const { title, pictureURL, description } = customShareInfo[key];
+    //     if (key && customShareInfo && customShareInfo[key]) {
+    //         const { title, pictureURL, description } = customShareInfo[key];
 
-            return {
-                type        : 'SHARE',
-                title       : strformat(title, query),
-                siteName    : 'It\'s quiz',
-                image       : pictureURL,
-                description : strformat(description, query)
-            };
-        }
-    }
+    //         return {
+    //             type        : 'SHARE',
+    //             title       : strformat(title, query),
+    //             siteName    : 'It\'s quiz',
+    //             image       : pictureURL,
+    //             description : strformat(description, query)
+    //         };
+    //     }
+    // }
 
-    if (route === '/promo/:key') {
-        const { promos } = clientConfig;
-        const { key } = params;
+    // if (route === '/promo/:key') {
+    //     const { promos } = clientConfig;
+    //     const { key } = params;
 
-        if (key && promos && promos[key]) {
-            const { title, image, description } = promos[key];
+    //     if (key && promos && promos[key]) {
+    //         const { title, image, description } = promos[key];
 
-            return {
-                type     : 'PROMO',
-                image,
-                title,
-                description,
-                siteName : 'It\'s quiz'
-            };
-        }
-    }
+    //         return {
+    //             type     : 'PROMO',
+    //             image,
+    //             title,
+    //             description,
+    //             siteName : 'It\'s quiz'
+    //         };
+    //     }
+    // }
 
     return {
         type        : 'MAIN',
         title       : 'Monday Digital',
         siteName    : 'Monday',
         image       : 'http://monday.fi/images/monday_logo.svg',
-        description : 'LOLOL'
+        description : 'New site of Monday Digital'
     };
 }
 
