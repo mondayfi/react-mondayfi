@@ -50,7 +50,7 @@
     "strformat": "0.0.7"
   },
   "devDependencies": {
-    "autoprefixer-loader": "*",
+    "postcss-loader": "*",
     "babel-cli": "^6.6.5",
     "babel-core": "^6.7.2",
     "babel-eslint": "*",
