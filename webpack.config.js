@@ -2,6 +2,8 @@ global.Promise = require('bluebird'); // for node 0.10
 
 var webpack = require('webpack');
 var ExtractTextPlugin = require("extract-text-webpack-plugin");
+var precss       = require('precss');
+var autoprefixer = require('autoprefixer');
 
 module.exports = {
     entry: "./client/app.js",
@@ -26,7 +28,7 @@ module.exports = {
         loaders: [
             {
                 test: /\.css$/,
-                loader: ExtractTextPlugin.extract("style-loader", "css-loader!autoprefixer-loader")
+                loader: ExtractTextPlugin.extract("style-loader", "css-loader!postcss-loader")
             },
             {
                 test: /\.scss$/,
@@ -46,6 +48,9 @@ module.exports = {
 
             { test: /\.txt$/, loader: "raw-loader" }
         ]
+    },
+    postcss: function () {
+        return [precss, autoprefixer];
     },
     eslint: {
         configFile: '.eslintrc'
