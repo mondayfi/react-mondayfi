@@ -11,9 +11,9 @@ import config               from '../../config';
 
 import VideoPage from '../../components/pages/VideoPage.jsx';
 
-const embedEvents = new EmbedEvents({
-    embedOrigin: config.embedOrigin
-});
+// const embedEvents = new EmbedEvents({
+//     embedOrigin: config.embedOrigin
+// });
 
 class VideoPageContainer extends Component {
 
