@@ -34,7 +34,9 @@ const i18nToolsRegistry = {
 };
 
 const app = express();
-app.use('/static', express.static(`${process.cwd()}/public/static`));
+const staticPath = `${process.cwd()}/public/static`;
+console.log(`serving static files: ${staticPath}`)
+app.use('/static', express.static(staticPath));
 app.use(cookieParser());
 
 app.use((req, res) => {
