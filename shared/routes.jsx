@@ -16,7 +16,7 @@ export default (
             <Route component={FrontPageContainer} path='/' />
             <Route component={ProfilePageContainer} path='/:name' />
             <Route component={VideoPageContainer} path='/vlog/:slug' />
-            <Redirect from='*' to='/' />
+            <Redirect from='/vlog/' to='/' />
         </Route>
     </Route>
 );
