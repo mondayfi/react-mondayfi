@@ -3,16 +3,16 @@ import { connect }                     from 'react-redux';
 
 import { loadActivation, loadSimilarActivations } from '../../actions/activations';
 import connectDataFetchers                        from '../../lib/connectDataFetchers.jsx';
-import EmbedEvents                                from '../../utils/EmbedEventsUtil';
+// import EmbedEvents                                from '../../utils/EmbedEventsUtil';
 import config                                     from '../../config';
 import { sendEvent }                              from '../../utils/googleAnalytics';
 import { makeSlug }                               from '../../utils/urlUtil';
 
 import ActivationPage from '../../components/pages/ActivationPage.jsx';
 
-const embedEvents = new EmbedEvents({
-    embedOrigin: config.embedOrigin
-});
+// const embedEvents = new EmbedEvents({
+//     embedOrigin: config.embedOrigin
+// });
 
 class ActivationPageContainer extends Component {
 

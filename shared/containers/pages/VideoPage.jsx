@@ -4,7 +4,7 @@ import _ from 'lodash';
 
 import { loadVideo }        from '../../actions/videos';
 import connectDataFetchers  from '../../lib/connectDataFetchers.jsx';
-import EmbedEvents          from '../../utils/EmbedEventsUtil';
+// import EmbedEvents          from '../../utils/EmbedEventsUtil';
 import config               from '../../config';
 // import { sendEvent }       from '../../utils/googleAnalytics';
 // import { makeSlug }        from '../../utils/urlUtil';
