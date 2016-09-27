@@ -34,9 +34,7 @@ const i18nToolsRegistry = {
 };
 
 const app = express();
-const staticPath = `${process.cwd()}/public/static`;
-console.log(`serving static files: ${staticPath}`)
-app.use('/static', express.static(staticPath));
+app.use('/static', express.static('public/static'));
 app.use(cookieParser());
 
 app.use((req, res) => {
@@ -166,7 +164,7 @@ function renderHTML({ componentHTML, initialState, metaData, config }) {
             <meta name="twitter:image" content="${escapeHTML(metaData.image)}" />
             <meta property="fb:app_id" content="${escapeHTML(config.facebookAppId)}" />
 
-            <link rel="stylesheet" href="${config.staticUrl}static/build/main.css">
+            <link rel="stylesheet" href="${config.staticUrl}/static/build/main.css">
         </head>
         <body>
         <div id="react-view">${componentHTML}</div>
@@ -175,7 +173,7 @@ function renderHTML({ componentHTML, initialState, metaData, config }) {
             window.__INITIAL_STATE__ = ${JSON.stringify(initialState)};
           </script>
 
-          <script type="application/javascript" src="${config.staticUrl}static/build/main.js"></script>
+          <script type="application/javascript" src="${config.staticUrl}/static/build/main.js"></script>
         </body>
         </html>
     `;
