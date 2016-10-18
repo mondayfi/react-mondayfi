@@ -8,7 +8,7 @@ import MainLayout from '../../components/layouts/MainLayout.jsx';
 
 export default class MainLayoutContainer extends Component {
     static propTypes = {
-        children  : PropTypes.object
+        children  : PropTypes.array
     };
 
     render() {
