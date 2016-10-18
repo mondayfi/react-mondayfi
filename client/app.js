@@ -33,13 +33,13 @@ function loadLocale(localeToLoad) {
 }
 
 function scrollTop() {
-  let {
-    action
-  } = this.state.location;
+    const {
+      action
+    } = this.state.location;
 
-  if (action === 'PUSH') {
-    window.scrollTo(0, 0);
-  }
+    if (action === 'PUSH') {
+        window.scrollTo(0, 0);
+    }
 }
 
 loadLocale(locale).then(localeData => {
@@ -48,7 +48,7 @@ loadLocale(locale).then(localeData => {
     ReactDOM.render(
         <Provider store={store}>
             <i18n.Provider i18n={i18nTools}>
-                <Router onUpdate={ scrollTop } children={routes} history={browserHistory} />
+                <Router onUpdate={scrollTop} children={routes} history={browserHistory} />
             </i18n.Provider>
         </Provider>,
 

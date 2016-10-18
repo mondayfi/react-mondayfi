@@ -4,23 +4,15 @@ import React, { Component, PropTypes } from 'react';
 
 import MainLayout from '../../components/layouts/MainLayout.jsx';
 
-import { sendEvent }   from '../../utils/googleAnalytics';
+// import { sendEvent }   from '../../utils/googleAnalytics';
 
 export default class MainLayoutContainer extends Component {
-    // static propTypes = {
-    //     history   : PropTypes.object,
-    //     dispatch  : PropTypes.func,
-    //     location  : PropTypes.object,
-    //     params    : PropTypes.object,
-    //     children  : PropTypes.object
-    // };
-
-    componentDidMount() {
-    }
+    static propTypes = {
+        children  : PropTypes.object
+    };
 
     render() {
-
-        const { location, children } = this.props;
+        const { children } = this.props;
 
         // const isEmbedded = location.query.embed;
 

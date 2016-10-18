@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router';
 
 if (process.env.BROWSER) {
     require('./Footer.scss');
@@ -16,7 +15,7 @@ export default class Footer extends Component {
                             <p>Business ID: <br />2435962-4</p>
                         </div>
                         <div className='mo-flexbox__item'>
-                            <p><a href="mailto:info@monday.fi" className="mo_linkicon__link">info@monday.fi</a></p>
+                            <p><a href='mailto:info@monday.fi' className='mo_linkicon__link'>info@monday.fi</a></p>
                             <p>Viides Linja 4, <br />00530 Helsinki</p>
                         </div>
                     </div>

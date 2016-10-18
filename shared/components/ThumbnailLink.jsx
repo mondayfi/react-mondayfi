@@ -1,17 +1,23 @@
-import React from 'react';
+import React, { PropTypes } from 'react';
 import { Link } from 'react-router';
 
-const ThumbnailLink = props => {
-  const { slug, thumb, isCurrent } = props;
-  const debuggingStyle = !isCurrent ? {} :
-  	{
-  		outline: '5px solid red'
-  	}
-  return (
-    <Link to={`/vlog/${slug}`}>
-      <img src={thumb} className='mo-hero__logo' style={ debuggingStyle } ></img>
-    </Link>
-  );
+function ThumbnailLink(props) {
+    const { slug, thumb, isCurrent } = props;
+    const debuggingStyle = !isCurrent ? {} :
+    {
+        outline: '5px solid red'
+    };
+
+    return (
+        <Link to={`/vlog/${slug}`}>
+            <img src={thumb} className='mo-hero__logo' style={debuggingStyle} ></img>
+        </Link>
+    );
+}
+ThumbnailLink.propTypes = {
+    slug:    PropTypes.string.isRequired,
+    thumb:   PropTypes.string.isRequired,
+    isCurrent:   PropTypes.bool
 };
 
 export default ThumbnailLink;
