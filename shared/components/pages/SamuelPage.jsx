@@ -1,6 +1,9 @@
 import React from 'react';
+import config from '../../config';
 
 function SamuelPage() {
+    const info = config.personnelInfo.samuel;
+
     return (
         <div>
             <div className='mo-hero mo-hero--narrow'>
@@ -17,23 +20,26 @@ function SamuelPage() {
                             <img
                                 className='mo-authorimage__image'
                                 src='/static/images/samuel.jpg'
-                                alt='Samuel Klinkmann'
+                                alt={`${info.firstName} ${info.lastName}`}
                             />
                         </div>
-                        <a href='tel:+358404869209' className='mo_linkicon  mo_linkicon--black'>
+                        <a href={`tel:${info.phone.link}`} className='mo_linkicon  mo_linkicon--black'>
                             <i className='mo-icon mo-icon--phone'></i>
-                            <span className='mo_linkicon__link'>040 486 92 09</span>
+                            <span className='mo_linkicon__link'>{info.phone.display}</span>
                         </a>
                         <br />
-                        <a href='mailto:samuel@monday.fi' className='mo_linkicon  mo_linkicon--black'>
+                        <a href={`mailto:${info.email}`} className='mo_linkicon  mo_linkicon--black'>
                             <i className='mo-icon mo-icon--envelope'></i>
-                            <span className='mo_linkicon__link'>samuel@monday.fi</span>
+                            <span className='mo_linkicon__link'>{info.email}</span>
                         </a>
                         <br />
-                        <a href='https://fi.linkedin.com/in/samuelklinkmann' className='mo_linkicon  mo_linkicon--black'><i className='mo-icon mo-icon--linkedin'></i><span className='mo_linkicon__link'>LinkedIn</span></a>
+                        <a href={info.linkedinLink} className='mo_linkicon  mo_linkicon--black'>
+                            <i className='mo-icon mo-icon--linkedin'></i>
+                            <span className='mo_linkicon__link'>LinkedIn</span>
+                        </a>
                     </div>
-                    <h2 className='mo-stand-alone__title'>Samuel Klinkmann</h2>
-                    <h3 className='mo-stand-alone__sub-title'>UX Developer</h3>
+                    <h2 className='mo-stand-alone__title'>{`${info.firstName} ${info.lastName}`}</h2>
+                    <h3 className='mo-stand-alone__sub-title'>{info.title}</h3>
                     <p>I'm a Helsinki based creative with a strong tech knowledge.</p>
 
                     <p>

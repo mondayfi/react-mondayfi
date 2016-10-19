@@ -1,6 +1,10 @@
 import React from 'react';
+import _ from 'lodash';
+import config from '../config';
 
 export default function WhoWeAre() {
+    const personnel = _(config.personnelInfo).keys().sort().reverse().value();
+
     return (
         <div className='mo-colorwrap mo-colorwrap--purple'>
             <div className='mo-grid'>
@@ -16,50 +20,49 @@ export default function WhoWeAre() {
                 </p>
 
                 <div className='mo-flexbox' id='contact'>
-                    <div className='mo-flexbox__item mo-flexbox__item--border mo-flexbox__item--centerphone'>
-                        <a href='/pyry' className='mo-authorimage'>
-                            <div className='mo-authorimage__imagefilter'></div>
-                            <img className='mo-authorimage__image' src='static/images/pyry.jpg' alt='Pyry Kovanen' />
-                        </a>
-                        <h3 className='mo-author'>Pyry Kovanen</h3>
-                        <a href='tel:+358408098364' className='mo_linkicon'>
-                            <i className='mo-icon mo-icon--phone'></i>
-                            <span className='mo_linkicon__link'>040 809 83 64</span>
-                        </a>
-                        <br />
-                        <a href='mailto:pyry@monday.fi' className='mo_linkicon'>
-                            <i className='mo-icon mo-icon--envelope'></i>
-                            <span className='mo_linkicon__link'>pyry@monday.fi</span>
-                        </a>
-                        <br />
-                        <a href='https://fi.linkedin.com/in/pyrykovanen' className='mo_linkicon'><i className='mo-icon mo-icon--linkedin'></i><span className='mo_linkicon__link'>LinkedIn</span></a><br />
-                        <a href='/pyry' className='mo-button mo-button--white mo-button--margintop'>Read more</a>
-                    </div>
+                    {
+                        _.map(personnel, (key, i) => {
+                            const person = config.personnelInfo[key];
 
-                    <div className='mo-flexbox__item mo-flexbox__item--centerphone'>
-                        <a href='/samuel' className='mo-authorimage'>
-                            <div className='mo-authorimage__imagefilter'></div>
-                            <img
-                                className='mo-authorimage__image'
-                                src='static/images/samuel.jpg'
-                                alt='Samuel Klinkmann'
-                            />
-                        </a>
-                        <h3 className='mo-author'>Samuel Klinkmann</h3>
-                        <a href='tel:+358404869209' className='mo_linkicon'>
-                            <i className='mo-icon mo-icon--phone'></i>
-                            <span className='mo_linkicon__link'>040 486 92 09</span>
-                        </a>
-                        <br />
-                        <a href='mailto:samuel@monday.fi' className='mo_linkicon'>
-                            <i className='mo-icon mo-icon--envelope'></i>
-                            <span className='mo_linkicon__link'>samuel@monday.fi</span>
-                        </a>
-                        <br />
-                        <a href='https://fi.linkedin.com/in/samuelklinkmann' className='mo_linkicon'><i className='mo-icon mo-icon--linkedin'></i><span className='mo_linkicon__link'>LinkedIn</span></a><br />
-                        <a href='/samuel' className='mo-button mo-button--white mo-button--margintop'>Read more</a>
-
-                    </div>
+                            return (
+                                <div
+                                    key={key}
+                                    className='mo-flexbox__item mo-flexbox__item--border mo-flexbox__item--centerphone'
+                                >
+                                    <a href={`/${key}`} className='mo-authorimage'>
+                                        <div className='mo-authorimage__imagefilter'></div>
+                                        <img
+                                            className='mo-authorimage__image'
+                                            src={`static/images/${key}.jpg`}
+                                            alt={`${person.firstName}  ${person.lastName}`}
+                                        />
+                                    </a>
+                                    <h3 className='mo-author'>{`${person.firstName}  ${person.lastName}`}</h3>
+                                    <a href={`tel:${person.phone.link}`} className='mo_linkicon'>
+                                        <i className='mo-icon mo-icon--phone'></i>
+                                        <span className='mo_linkicon__link'>{`${person.phone.display}`}</span>
+                                    </a>
+                                    <br />
+                                    <a href={`email:${person.email}`} className='mo_linkicon'>
+                                        <i className='mo-icon mo-icon--envelope'></i>
+                                        <span className='mo_linkicon__link'>{`${person.email}`}</span>
+                                    </a>
+                                    <br />
+                                    <a href={`${person.linkedinLink}`} className='mo_linkicon' >
+                                        <i className='mo-icon mo-icon--linkedin'></i>
+                                        <span className='mo_linkicon__link'>LinkedIn</span>
+                                    </a>
+                                    <br />
+                                    <a
+                                        href={`/${key}`}
+                                        className='mo-button mo-button--white mo-button--margintop'
+                                    >
+                                        Read more
+                                    </a>
+                                </div>
+                            );
+                        })
+                    }
                 </div>
             </div>
         </div>

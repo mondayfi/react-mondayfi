@@ -16,7 +16,7 @@ export default function Testimonial() {
                 <p>
                     <strong>{'Meri Härmälä'}</strong>
                     <br />
-                    {'Web Service Manager at'}
+                    {'Web Service Manager at '}
                     <a href='http://valio.fi' target='_blank' className='mo_linkicon__link'>Valio</a>
                 </p>
             </div>

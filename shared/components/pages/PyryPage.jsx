@@ -1,6 +1,9 @@
 import React from 'react';
+import config from '../../config';
 
 function PyryPage() {
+    const info = config.personnelInfo.pyry;
+
     return (
         <div>
             <div className='mo-hero mo-hero--narrow'>
@@ -16,23 +19,27 @@ function PyryPage() {
                         <div className='mo-authorimage mo-authorimage--stand-alone'>
                             <img
                                 className='mo-authorimage__image'
-                                src='/static/images/pyry.jpg' alt='Pyry Kovanen'
+                                src='/static/images/pyry.jpg'
+                                alt={`${info.firstName} ${info.lastName}`}
                             />
                         </div>
-                        <a href='tel:+358408098364' className='mo_linkicon  mo_linkicon--black'>
+                        <a href={`tel:${info.phone.link}`} className='mo_linkicon  mo_linkicon--black'>
                             <i className='mo-icon mo-icon--phone'></i>
-                            <span className='mo_linkicon__link'>040 809 83 64</span>
+                            <span className='mo_linkicon__link'>{info.phone.display}</span>
                         </a>
                         <br />
-                        <a href='mailto:pyry@monday.fi' className='mo_linkicon  mo_linkicon--black'>
+                        <a href={`mailto:${info.email}`} className='mo_linkicon  mo_linkicon--black'>
                             <i className='mo-icon mo-icon--envelope'></i>
-                            <span className='mo_linkicon__link'>pyry@monday.fi</span>
+                            <span className='mo_linkicon__link'>{info.email}</span>
                         </a>
                         <br />
-                        <a href='https://fi.linkedin.com/in/pyrykovanen' className='mo_linkicon  mo_linkicon--black'><i className='mo-icon mo-icon--linkedin'></i><span className='mo_linkicon__link'>LinkedIn</span></a>
+                        <a href={info.linkedinLink} className='mo_linkicon  mo_linkicon--black'>
+                            <i className='mo-icon mo-icon--linkedin'></i>
+                            <span className='mo_linkicon__link'>LinkedIn</span>
+                        </a>
                     </div>
-                    <h2 className='mo-stand-alone__title'>Pyry Kovanen</h2>
-                    <h3 className='mo-stand-alone__sub-title'>Full Stack Developer</h3>
+                    <h2 className='mo-stand-alone__title'>{`${info.firstName} ${info.lastName}`}</h2>
+                    <h3 className='mo-stand-alone__sub-title'>{info.title}</h3>
                     <p>
                         I'm social and conscientious,
                         I'm not afraid of new challenges and
