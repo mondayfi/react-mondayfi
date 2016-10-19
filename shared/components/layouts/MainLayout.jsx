@@ -8,7 +8,7 @@ if (process.env.BROWSER) {
 export default class MainLayout extends Component {
 
     static propTypes = {
-        children: PropTypes.object
+        children: PropTypes.array
     };
 
     render() {

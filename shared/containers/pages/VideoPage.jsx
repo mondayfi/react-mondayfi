@@ -25,7 +25,7 @@ class VideoPageContainer extends Component {
     constructor() {
         super();
         this.state = {
-            currentIndex: null
+            currentIndex: 0
         };
     }
 
@@ -59,12 +59,8 @@ class VideoPageContainer extends Component {
         const { currentIndex } = this.state;
         const { video: { video } } = this.props;
 
-        if (_.isNull(currentIndex)) {
-            return [];
-        }
         const maxIndex = _.size(video);
-        const indexFromTheEnd = maxIndex - this.state.currentIndex;
-
+        const indexFromTheEnd = maxIndex - currentIndex;
         let start;
         let end;
 
@@ -84,12 +80,6 @@ class VideoPageContainer extends Component {
 
     render() {
         const { routeParams: { slug } } = this.props;
-        const { currentIndex } = this.state;
-
-        if (_.isNull(currentIndex)) {
-            return <div></div>;
-        }
-
         const videos = this.videoThumbs;
 
         return <VideoPage currentSlug={slug} videos={videos} />;
