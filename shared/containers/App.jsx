@@ -1,8 +1,8 @@
 import React, { Component, PropTypes } from 'react';
 
 // import EmbedEvents              from '../utils/EmbedEventsUtil';
-import config                   from '../config';
-import { initialize, navigate } from '../utils/googleAnalytics';
+// import config                   from '../config';
+// import { initialize, navigate } from '../utils/googleAnalytics';
 
 if (process.env.BROWSER) {
     require('../assets');
@@ -28,10 +28,3 @@ export default class App extends Component {
         );
     }
 }
-
-App.propTypes = {
-        location : PropTypes.object,
-        routes   : PropTypes.array,
-        children : PropTypes.object,
-        history  : PropTypes.object
-};

@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router';
+import SomeBlock from './SomeBlock.jsx';
+import FooterLove from './FooterLove.jsx';
+import { companyInfo } from '../config';
 
 if (process.env.BROWSER) {
     require('./Footer.scss');
@@ -8,19 +10,33 @@ if (process.env.BROWSER) {
 export default class Footer extends Component {
     render() {
         return (
-            <div className='mo-colorwrap mo-colorwrap--white mo-colorwrap--white--border mo-colorwrap--smallpadding'>
-                <div className='mo-grid'>
-                    <div className='mo-flexbox'>
-                        <div className='mo-flexbox__item'>
-                            <p><strong>Monday Digital Oy</strong></p>
-                            <p>Business ID: <br />2435962-4</p>
-                        </div>
-                        <div className='mo-flexbox__item'>
-                            <p><a href="mailto:info@monday.fi" className="mo_linkicon__link">info@monday.fi</a></p>
-                            <p>Viides Linja 4, <br />00530 Helsinki</p>
+            <div>
+                <SomeBlock />
+                <div
+                    className='mo-colorwrap mo-colorwrap--white mo-colorwrap--white--border mo-colorwrap--smallpadding'
+                >
+                    <div className='mo-grid'>
+                        <div className='mo-flexbox'>
+                            <div className='mo-flexbox__item'>
+                                <p><strong>{companyInfo.officialName}</strong></p>
+                                <p>Business ID: <br />{companyInfo.businessId}</p>
+                            </div>
+                            <div className='mo-flexbox__item'>
+                                <p>
+                                    <a href={`mailto:${companyInfo.contactEmail}`} className='mo_linkicon__link'>
+                                        {companyInfo.contactEmail}
+                                    </a>
+                                </p>
+                                <p>
+                                    {companyInfo.streetAddress},
+                                    <br />
+                                    {`${companyInfo.postalCode} ${companyInfo.city}`}
+                                </p>
+                            </div>
                         </div>
                     </div>
                 </div>
+                <FooterLove />
             </div>
         );
     }

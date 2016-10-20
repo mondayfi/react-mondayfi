@@ -7,13 +7,9 @@ if (process.env.BROWSER) {
 
 export default class MainLayout extends Component {
 
-    // static propTypes = {
-    //     showWelcomeScreen      : PropTypes.bool,
-    //     showFooter             : PropTypes.bool,
-    //     children               : PropTypes.object,
-    //     footerLinks            : PropTypes.object,
-    //     onWelcomeScreenDismiss : PropTypes.func
-    // };
+    static propTypes = {
+        children: PropTypes.array
+    };
 
     render() {
         // const { showWelcomeScreen, showFooter, children, onWelcomeScreenDismiss } = this.props;

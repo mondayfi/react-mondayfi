@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component, PropTypes } from 'react';
 import { Link } from 'react-router';
 import _ from 'lodash';
 import cx    from 'classnames';
@@ -12,37 +12,46 @@ if (process.env.BROWSER) {
 
 export default class FrontPage extends Component {
 
+    static propTypes = {
+        currentSlug: PropTypes.string.isRequired,
+        videos: PropTypes.array
+    }
+
     nl2br(string) {
-      const arrayOfText = string.split('\n');
-      return _(arrayOfText)
-        .compact()
-        .map((d, i) => <p key={i}>{d}</p>)
-        .value(); 
+        const arrayOfText = string.split('\n');
+
+        return _(arrayOfText)
+          .compact()
+          .map((d, i) => <p key={i}>{d}</p>)
+          .value();
     }
 
     directionLink(video, label) {
-      if(_.isUndefined(video)) {
-        return;
-      }
-      return <Link to={`/vlog/${video.slug.en}`}>{label}</Link>;
+        if (_.isUndefined(video)) {
+            return;
+        }
+
+        return <Link to={`/vlog/${video.slug.en}`}>{label}</Link>;
     }
 
     render() {
-      const { currentSlug, videos } = this.props;  
-      const frontPageClasses = cx({
-        'mo-front-page': true
-      });
-      if(_.isEmpty(videos)) {
-          return <div></div>
-      }
-      const currentIdx = _.findIndex(videos, v => v.slug.en === currentSlug);
-      const prevVideoIdx = currentIdx - 1;
-      const nextVideoIdx = currentIdx + 1;
-      const currentVideo = videos[currentIdx];
-      const prevVideo = videos[prevVideoIdx];
-      const nextVideo = videos[nextVideoIdx];
-      return (
-        <div className={frontPageClasses}>
+        const { currentSlug, videos } = this.props;
+        const frontPageClasses = cx({
+            'mo-front-page': true
+        });
+
+        if (_.isEmpty(videos)) {
+            return <div></div>;
+        }
+        const currentIdx = _.findIndex(videos, v => v.slug.en === currentSlug);
+        const prevVideoIdx = currentIdx - 1;
+        const nextVideoIdx = currentIdx + 1;
+        const currentVideo = videos[currentIdx];
+        const prevVideo = videos[prevVideoIdx];
+        const nextVideo = videos[nextVideoIdx];
+
+        return (
+            <div className={frontPageClasses}>
             <div className='mo-hero mo-hero--narrow'>
             <div className='mo-hero__slide'>
               <div className='mo-hero__content mo-grid'>
@@ -91,6 +100,6 @@ export default class FrontPage extends Component {
         </div>
       </div>
         </div>
-      );
+        );
     }
 }

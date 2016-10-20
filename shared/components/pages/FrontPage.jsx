@@ -1,6 +1,6 @@
-import React, { Component } from 'react';
+import React, { Component, PropTypes } from 'react';
 import cx    from 'classnames';
-import { isEmpty } from 'lodash'
+import { isEmpty } from 'lodash';
 // import { Tab, Tabs } from 'react-mdl/lib/Tabs';
 // import { Card }      from 'react-mdl/lib/Card';
 // import Spinner       from 'react-mdl/lib/Spinner';
@@ -12,49 +12,46 @@ import CompetenceBullets from '../CompetenceBullets.jsx';
 import WhoWeAre from '../WhoWeAre.jsx';
 import VlogLiftup from '../VlogLiftup.jsx';
 import Testimonial from '../Testimonial.jsx';
-import SomeBlock from '../SomeBlock.jsx';
 import Footer from '../Footer.jsx';
-import FooterLove from '../FooterLove.jsx';
 
 if (process.env.BROWSER) {
     require('./FrontPage.scss');
 }
 
 export default class FrontPage extends Component {
+    static propTypes = {
+        videoEpisode: PropTypes.object.isRequired
+    }
 
     render() {
-      const { videoEpisode } = this.props;
-      const frontPageClasses = cx({
-        'mo-front-page': true
-      });
+        const { videoEpisode } = this.props;
+        const frontPageClasses = cx({
+            'mo-front-page': true
+        });
 
-        if(isEmpty(videoEpisode)) {
-          return (
-            <div className={frontPageClasses}>
-              <FrontHero />
-              <WhatWeDo />
-              <CompetenceBullets />
-              <WhoWeAre />
-              <Testimonial />
-              <SomeBlock />
-              <Footer />
-              <FooterLove />
-            </div>
-          );
+        if (isEmpty(videoEpisode)) {
+            return (
+                <div className={frontPageClasses}>
+                    <FrontHero />
+                    <WhatWeDo />
+                    <CompetenceBullets />
+                    <WhoWeAre />
+                    <Testimonial />
+                    <Footer />
+                </div>
+            );
         }
-        
+
         return (
-          <div className={frontPageClasses}>
-            <FrontHero />
-            <WhatWeDo />
-            <CompetenceBullets />
-            <VlogLiftup {...videoEpisode} />
-            <WhoWeAre />
-            <Testimonial />
-            <SomeBlock />
-            <Footer />
-            <FooterLove />
-          </div>
+            <div className={frontPageClasses}>
+                <FrontHero />
+                <WhatWeDo />
+                <CompetenceBullets />
+                <VlogLiftup {...videoEpisode} />
+                <WhoWeAre />
+                <Testimonial />
+                <Footer />
+            </div>
         );
-    }   
+    }
 }
