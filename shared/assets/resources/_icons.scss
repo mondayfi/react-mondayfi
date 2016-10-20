@@ -73,6 +73,12 @@
   }
 }
 
+.mo-icon--arrow-right {
+  @include icon(arrow-right);
+}
+.mo-icon--arrow-left {
+  @include icon(arrow-left);
+}
 .mo-icon--envelope {
   @include icon(envelope);
 }

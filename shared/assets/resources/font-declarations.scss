@@ -33,6 +33,7 @@ h2,
     font-size: 42px;
   }
 }
+
 .mo-h2--fontbody {
   @include font-body;
 }
@@ -62,9 +63,6 @@ strong {
 a {
   text-decoration: none;
   color: inherit;
-  @include breakpoint(tablet-and-up) {
-    font-size: 20px;
-  }
 }
 
 .mo-smalltext {

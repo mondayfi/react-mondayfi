@@ -1,0 +1,25 @@
+.mo-thumbnail-wrapper {
+    @include clearfix();
+    text-align: center;   
+}
+
+.mo-thumbnail {
+margin-right: 5px;
+text-align: center;
+width: 106px;
+float: left;
+border-width: 5px;
+border-style: solid;
+border-color: transparent;
+  
+  &__img {
+      width: 100%;
+      display: block;
+  }
+  &--active {
+    border: 2px solid $color-skyblue;
+  }
+  &:last-child {
+    margin-right: 0;
+  }
+}

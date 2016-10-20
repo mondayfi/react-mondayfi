@@ -1,5 +1,9 @@
 .mo_linkicon {
   line-height: 2em;
+  
+  @include breakpoint(tablet-and-up) {
+    font-size: 20px;
+  }
 
   i {
     width: 30px;

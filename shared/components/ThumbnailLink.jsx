@@ -5,11 +5,11 @@ const ThumbnailLink = props => {
   const { slug, thumb, isCurrent } = props;
   const debuggingStyle = !isCurrent ? {} :
   	{
-  		outline: '5px solid red'
+  		borderColor: '#fff'
   	}
   return (
-    <Link to={`/vlog/${slug}`}>
-      <img src={thumb} className='mo-hero__logo' style={ debuggingStyle } ></img>
+    <Link to={`/vlog/${slug}`} className="mo-thumbnail" style={ debuggingStyle } >
+      <img src={thumb} className='mo-thumbnail__img' ></img>
     </Link>
   );
 };
