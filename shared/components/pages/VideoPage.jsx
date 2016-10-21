@@ -57,8 +57,6 @@ export default class FrontPage extends Component {
         const currentVideo = videos[currentIdx];
         const prevVideo = videos[prevVideoIdx];
         const nextVideo = videos[nextVideoIdx];
-        console.log(videos);
-        console.log(currentVideo)
 
         return (
           <div className={frontPageClasses}>
