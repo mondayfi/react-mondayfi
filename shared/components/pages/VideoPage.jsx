@@ -59,9 +59,9 @@ export default class FrontPage extends Component {
               </div>
             </div>
           </div>
-          { this.directionLink(prevVideo, '<i className="mo-icon mo-icon--arrow-left"></i>') }
+          { this.directionLink(prevVideo, <i className="mo-icon mo-icon--arrow-left"></i>) }
           <VlogLiftup {...currentVideo} />
-          { this.directionLink(nextVideo, '<i className="mo-icon mo-icon--arrow-right"></i>') }
+          { this.directionLink(nextVideo, <i className="mo-icon mo-icon--arrow-right"></i>) }
           <div className="mo-colorwrap mo-colorwrap--purple">
           <div className="mo-grid">
           <h3>Previous episodes</h3>
