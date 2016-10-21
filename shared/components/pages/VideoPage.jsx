@@ -5,7 +5,6 @@ import cx    from 'classnames';
 import VlogLiftup from '../VlogLiftup.jsx';
 import ThumbnailLink from '../ThumbnailLink.jsx';
 
-
 if (process.env.BROWSER) {
     require('./VideoPage.scss');
 }
@@ -17,12 +16,16 @@ export default class FrontPage extends Component {
         videos: PropTypes.array
     }
 
-    nl2br(string) {
+    parsePlainText(string) {
         const arrayOfText = string.split('\n');
+        const urlRegex =/(\b(https?|ftp|file):\/\/[-A-Z0-9+&@#\/%?=~_|!:,.;]*[-A-Z0-9+&@#\/%=~_|])/ig;
 
         return _(arrayOfText)
           .compact()
-          .map((d, i) => <p key={i}>{d}</p>)
+          .map((txt, i) => {
+            const txtWithParsedStrings = txt.replace(urlRegex, url => `<a target="__blank" class="mo_linkicon__link" href="${url}">${url}</a>`);
+            return <p key={i} dangerouslySetInnerHTML={{__html: txtWithParsedStrings}}></p>;
+          })
           .value();
     }
 
@@ -80,7 +83,7 @@ export default class FrontPage extends Component {
             <div className='mo-colorwrap mo-colorwrap--athensgrey'>
             <div className='mo-grid'>
                 <h3>{currentVideo.title.en }</h3>
-                { this.nl2br(currentVideo.description.en) }
+              { this.parsePlainText(currentVideo.description.en) }
               </div>
           </div>
           <div className='mo-colorwrap mo-colorwrap--white mo-colorwrap--white--border mo-colorwrap--nopadding '>
