@@ -3,6 +3,8 @@ import { Link } from 'react-router';
 import _ from 'lodash';
 import cx    from 'classnames';
 import VlogLiftup from '../VlogLiftup.jsx';
+import Hero from '../Hero.jsx';
+import Footer from '../Footer.jsx';
 import ThumbnailLink from '../ThumbnailLink.jsx';
 
 if (process.env.BROWSER) {
@@ -27,7 +29,7 @@ export default class FrontPage extends Component {
             const allTagsRemoved = txt.replace(/<[^>]*>/g, '');
             const txtWithParsedLinks = allTagsRemoved.replace(urlRegex, url => `<a target="__blank" class="mo_linkicon__link" href="${url}">${url}</a>`);
 
-            return <p key={txtWithParsedLinks} dangerouslySetInnerHTML={{__html: txtWithParsedLinks}}></p>;
+            return <p key={i} dangerouslySetInnerHTML={{__html: txtWithParsedLinks}}></p>;
           })
           .value();
     }
@@ -55,18 +57,12 @@ export default class FrontPage extends Component {
         const currentVideo = videos[currentIdx];
         const prevVideo = videos[prevVideoIdx];
         const nextVideo = videos[nextVideoIdx];
+        console.log(videos);
+        console.log(currentVideo)
 
         return (
           <div className={frontPageClasses}>
-            <div className='mo-hero mo-hero--narrow'>
-              <div className='mo-hero__slide'>
-                <div className='mo-hero__content mo-grid'>
-                  <a href='/'><img src='/static/images/monday_logo.svg' className='mo-hero__logo' /></a>
-                  
-                  <div className="mo-hero__right"><a href="/">Back to mainpage</a></div>
-                </div>
-              </div>
-            </div>
+          <Hero />
             <div className='mo-video-page-wrap'>
               <div className='mo-colorwrap mo-colorwrap--athensgrey'>
                 <div className='mo-grid'>
@@ -94,24 +90,7 @@ export default class FrontPage extends Component {
                 { this.parsePlainText(currentVideo.description.en) }
                 </div>
             </div>
-            <div className='mo-colorwrap mo-colorwrap--white mo-colorwrap--white--border mo-colorwrap--nopadding '>
-              <div className='mo-grid'>
-                <div className='mo-footer'>
-            <div className='mo-footer__some'>
-              <ul className='mo-footer__some__ul'>
-                <li className='mo-footer__some__li'><a href='https://www.facebook.com/mondaydigital' className='mo-footer__some__item mo-footer__some__item--border'  target='_blank'><i className='mo-icon mo-icon--facebook'></i><span className='mo-footer__some__text'>Facebook</span></a></li>
-                <li className='mo-footer__some__li'><a href='https://twitter.com/mondayfi' className='mo-footer__some__item mo-footer__some__item--border' target='_blank'><i className='mo-icon mo-icon--twitter'></i><span className='mo-footer__some__text'>LinkedIn</span></a></li>
-                <li className='mo-footer__some__li'><a href='https://www.linkedin.com/company/monday-digital-oy' className='mo-footer__some__item' target='_blank'><i className='mo-icon mo-icon--linkedin'></i><span className='mo-footer__some__text'>Twitter</span></a></li>
-              </ul>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div className='mo-colorwrap mo-colorwrap--white mo-colorwrap--smallpadding'>
-        <div className='mo-grid'>
-        <p className='mo-textaligncenter'>Made with <i className='mo-icon mo-icon--heart mo_heartred'></i> in Helsinki.</p>
-        </div>
-      </div>
+          <Footer />
         </div>
         );
     }

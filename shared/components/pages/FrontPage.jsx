@@ -6,7 +6,7 @@ import { isEmpty } from 'lodash';
 // import Spinner       from 'react-mdl/lib/Spinner';
 // import Button        from 'react-mdl/lib/Button';
 
-import FrontHero from '../FrontHero.jsx';
+import Hero from '../Hero.jsx';
 import WhatWeDo from '../WhatWeDo.jsx';
 import CompetenceBullets from '../CompetenceBullets.jsx';
 import WhoWeAre from '../WhoWeAre.jsx';
@@ -32,7 +32,7 @@ export default class FrontPage extends Component {
         if (isEmpty(videoEpisode)) {
             return (
                 <div className={frontPageClasses}>
-                    <FrontHero />
+                    <Hero type={'front'} />
                     <WhatWeDo />
                     <CompetenceBullets />
                     <WhoWeAre />

@@ -4,16 +4,7 @@ import _ from 'lodash';
 
 import { loadVideo }        from '../../actions/videos';
 import connectDataFetchers  from '../../lib/connectDataFetchers.jsx';
-// import EmbedEvents          from '../../utils/EmbedEventsUtil';
-// import config               from '../../config';
-// import { sendEvent }       from '../../utils/googleAnalytics';
-// import { makeSlug }        from '../../utils/urlUtil';
-
 import VideoPage from '../../components/pages/VideoPage.jsx';
-
-// const embedEvents = new EmbedEvents({
-//     embedOrigin: config.embedOrigin
-// });
 
 class VideoPageContainer extends Component {
 
@@ -22,11 +13,12 @@ class VideoPageContainer extends Component {
         routeParams: PropTypes.object.isRequired
     }
 
-    constructor() {
+    constructor(props) {
         super();
         this.state = {
             currentIndex: 0
         };
+        this.updateIndexOnPropChange(props);
     }
 
     componentDidMount() {
@@ -40,15 +32,23 @@ class VideoPageContainer extends Component {
         this.updateIndexOnPropChange();
     }
 
-    updateIndexOnPropChange() {
-        const { video: { video }, routeParams: { slug } } = this.props;
+    updateIndexOnPropChange(props) {
+        const { video: { video }, routeParams: { slug } } = this.props || props;
 
         if (_.isEmpty(video)) {
             return;
         }
-        const foundIndex = _.findIndex(video, v => v.slug.en === slug);
 
-        this.setState({
+        const foundIndex = _.findIndex(video, v => v.slug.en === slug);
+        
+        if(props) {
+            this.state = {
+                currentIndex: foundIndex
+            };
+            return;
+        }
+        
+        return this.setState({
             currentIndex: foundIndex
         });
     }
@@ -81,7 +81,6 @@ class VideoPageContainer extends Component {
     render() {
         const { routeParams: { slug } } = this.props;
         const videos = this.videoThumbs;
-
         return <VideoPage currentSlug={slug} videos={videos} />;
     }
 }
