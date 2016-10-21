@@ -74,11 +74,9 @@ export default class FrontPage extends Component {
               <div className='mo-grid'>
                 <h3>Previous episodes</h3>
                   <div className='mo-thumbnail-wrapper'>
-                  { 
-                    videos.map((v, i) => {
-                      return <ThumbnailLink isCurrent={ currentIdx === i  } key={i} thumb={v.thumb} slug={v.slug.en} />;
-                    })
-                  }
+                  {videos.map((v, i) =>
+                    <ThumbnailLink isCurrent={ currentIdx === i  } key={i} thumb={v.thumb} slug={v.slug.en} />
+                  )}
                 </div>
               </div>
             </div>
