@@ -1,2 +1,13 @@
 .mo-video-page {
 }
+
+.mo-video-page-wrap {
+    position: relative;
+}
+
+.mo-video-thumb {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 50%;  
+}

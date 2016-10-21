@@ -8,7 +8,7 @@ export default function FooterLove() {
                 <p className='mo-textaligncenter'>
                     {'Made with '}
                     <i className='mo-icon mo-icon--heart mo_heartred'></i>
-                    {`in ${companyInfo.city}`}
+                    {` in ${companyInfo.city}`}
                 </p>
             </div>
         </div>

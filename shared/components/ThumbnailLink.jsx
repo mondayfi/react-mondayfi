@@ -5,7 +5,7 @@ function ThumbnailLink(props) {
     const { slug, thumb, isCurrent } = props;
     const debuggingStyle = !isCurrent ? {} :
     {
-        outline: '5px solid red'
+        borderColor: '#fff'
     };
 
     return (
