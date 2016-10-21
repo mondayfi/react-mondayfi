@@ -47,7 +47,7 @@ export default class FrontPage extends Component {
                 <Hero type={'front'} />
                 <WhatWeDo />
                 <CompetenceBullets />
-                <VlogLiftup {...videoEpisode} />
+                <VlogLiftup {...videoEpisode} type={'front'} />
                 <WhoWeAre />
                 <Testimonial />
                 <Footer />
