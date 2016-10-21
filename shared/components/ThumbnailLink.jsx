@@ -9,7 +9,7 @@ function ThumbnailLink(props) {
     };
 
     return (
-        <Link to={`/vlog/${slug}`} className="mo-thumbnail" style={ debuggingStyle } >
+        <Link to={`/vlog/${slug}`} className='mo-thumbnail' style={ debuggingStyle } >
             <img src={thumb} className='mo-thumbnail__img' ></img>
         </Link>
     );

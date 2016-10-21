@@ -59,15 +59,15 @@ export default class FrontPage extends Component {
               </div>
             </div>
           </div>
-          <div className="mo-video-page-wrap">
-          { this.directionLink(prevVideo, <i className="mo-video-thumb mo-video-thumb--right mo-icon mo-icon--arrow-left"></i>) }
+          <div className='mo-video-page-wrap'>
+          { this.directionLink(prevVideo, <i className='mo-video-thumb mo-video-thumb--right mo-icon mo-icon--arrow-left'></i>) }
           <VlogLiftup {...currentVideo} />
-          { this.directionLink(nextVideo, <i className="mo-video-thumb mo-video-thumb--right mo-icon mo-icon--arrow-right"></i>) }
+          { this.directionLink(nextVideo, <i className='mo-video-thumb mo-video-thumb--right mo-icon mo-icon--arrow-right'></i>) }
           </div>
-          <div className="mo-colorwrap mo-colorwrap--purple">
-          <div className="mo-grid">
+          <div className='mo-colorwrap mo-colorwrap--purple'>
+          <div className='mo-grid'>
           <h3>Previous episodes</h3>
-          <div className="mo-thumbnail-wrapper">
+          <div className='mo-thumbnail-wrapper'>
           
             { 
               videos.map((v, i) => {
@@ -77,8 +77,8 @@ export default class FrontPage extends Component {
             </div>
             </div>
           </div>
-            <div className="mo-colorwrap mo-colorwrap--athensgrey">
-            <div className="mo-grid">
+            <div className='mo-colorwrap mo-colorwrap--athensgrey'>
+            <div className='mo-grid'>
                 <h3>{currentVideo.title.en }</h3>
                 { this.nl2br(currentVideo.description.en) }
               </div>
