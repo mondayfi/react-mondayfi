@@ -87,10 +87,10 @@ export function getMetaDataFromState({ route, state, params = {}, query = {}, la
 
     return {
         type        : 'MAIN',
-        title       : 'Monday Digital',
-        siteName    : 'Monday',
+        title       : 'Weeks have never started this well',
+        siteName    : 'Monday.fi',
         image       : 'http://monday.fi/images/monday_logo.svg',
-        description : 'New site of Monday Digital'
+        description : `Monday makes razor sharp online services that match the demand of today's users.`
     };
 }
 

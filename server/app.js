@@ -155,8 +155,6 @@ function renderHTML({ componentHTML, initialState, metaData, config }) {
             <meta property="og:image:height" content="158" />
             <meta property="og:description" content="${escapeHTML(metaData.description)}" />
             <meta property="og:locale" content="en_US" />
-            <meta property="og:locale:alternate" content="ru_RU" />
-            <meta property="og:locale:alternate" content="uk_UA" />
             <meta name="twitter:card" content="summary" />
             <meta name="twitter:site" content="@mondayfi" />
             <meta name="twitter:title" content="${escapeHTML(metaData.title)}" />

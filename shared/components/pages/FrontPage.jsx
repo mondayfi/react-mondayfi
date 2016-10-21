@@ -47,13 +47,7 @@ export default class FrontPage extends Component {
                 <FrontHero />
                 <WhatWeDo />
                 <CompetenceBullets />
-                <div className='mo-video-page-wrap'>
-                    <div className='mo-colorwrap mo-colorwrap--athensgrey'>
-                        <div className='mo-grid'>
-                            <VlogLiftup {...videoEpisode} />
-                        </div>
-                    </div>
-                </div>
+                <VlogLiftup {...videoEpisode} />
                 <WhoWeAre />
                 <Testimonial />
                 <Footer />
