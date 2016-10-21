@@ -3,8 +3,8 @@ import { Link } from 'react-router';
 import VideoContainer from './VideoContainer.jsx';
 
 function VlogLiftup(props) {
-    const { _id, title, slug, type } = props;    
-    
+    const { _id, title, slug, type } = props;
+
     const jsx = {
         front: (
             <div className='mo-colorwrap mo-colorwrap--athensgrey'>

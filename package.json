@@ -20,6 +20,7 @@
     "stop": "NODE_ENV='production' pm2 delete itsquiz-wall -s &> /dev/null"
   },
   "dependencies": {
+    "autoprefixer": "^6.5.1",
     "babel-eslint": "^6.0.4",
     "babel-polyfill": "^6.7.2",
     "babel-runtime": "^6.6.1",
