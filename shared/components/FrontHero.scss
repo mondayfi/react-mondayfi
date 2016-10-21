@@ -85,6 +85,14 @@
       background: url('/static/images/clouds.png') 0 100% repeat-x;
     }
   }
+  
+  &__right {
+    float: right;
+    color: $color-white;
+    margin-top: 6px;
+    @include font-title;
+    
+  }
 }
 
 @-webkit-keyframes horizontalLoop {

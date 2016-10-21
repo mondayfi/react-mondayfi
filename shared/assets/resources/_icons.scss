@@ -27,6 +27,12 @@
 @function icon-char($filename) {
   $char: "";
 
+  @if $filename == arrow-right {
+    $char: "\E001";
+  }
+  @if $filename == arrow-left {
+    $char: "\E002";
+  }
   @if $filename == envelope {
     $char: "\E003";
   }
@@ -50,12 +56,6 @@
   }
   @if $filename == twitter {
     $char: "\E00A";
-  }
-@if $filename == arrow-right {
-    $char: "\E001";
-  }
-    @if $filename == arrow-left {
-    $char: "\E0002";
   }
 
   @return $char;

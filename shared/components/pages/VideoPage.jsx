@@ -32,12 +32,12 @@ export default class FrontPage extends Component {
           .value();
     }
 
-    directionLink(video, label) {
+    directionLink(video, label, additionalClass) {
         if (_.isUndefined(video)) {
             return;
         }
 
-        return <Link to={`/vlog/${video.slug.en}`}>{label}</Link>;
+        return <Link className={additionalClass} to={`/vlog/${video.slug.en}`}>{label}</Link>;
     }
 
     render() {
@@ -57,41 +57,46 @@ export default class FrontPage extends Component {
         const nextVideo = videos[nextVideoIdx];
 
         return (
-            <div className={frontPageClasses}>
+          <div className={frontPageClasses}>
             <div className='mo-hero mo-hero--narrow'>
-            <div className='mo-hero__slide'>
-              <div className='mo-hero__content mo-grid'>
-                <a href='/'><img src='/static/images/monday_logo.svg' className='mo-hero__logo' /></a>
+              <div className='mo-hero__slide'>
+                <div className='mo-hero__content mo-grid'>
+                  <a href='/'><img src='/static/images/monday_logo.svg' className='mo-hero__logo' /></a>
+                  
+                  <div className="mo-hero__right"><a href="/">Back to mainpage</a></div>
+                </div>
               </div>
             </div>
-          </div>
-          <div className='mo-video-page-wrap'>
-          { this.directionLink(prevVideo, <i className='mo-video-thumb mo-video-thumb--right mo-icon mo-icon--arrow-left'></i>) }
-          <VlogLiftup {...currentVideo} />
-          { this.directionLink(nextVideo, <i className='mo-video-thumb mo-video-thumb--right mo-icon mo-icon--arrow-right'></i>) }
-          </div>
-          <div className='mo-colorwrap mo-colorwrap--purple'>
-          <div className='mo-grid'>
-          <h3>Previous episodes</h3>
-          <div className='mo-thumbnail-wrapper'>
-          
-            { 
-              videos.map((v, i) => {
-                return <ThumbnailLink isCurrent={ currentIdx === i  } key={i} thumb={v.thumb} slug={v.slug.en} />;
-              })
-            }
+            <div className='mo-video-page-wrap'>
+              <div className='mo-colorwrap mo-colorwrap--athensgrey'>
+                <div className='mo-grid'>
+                  { this.directionLink(prevVideo, <i className='mo-icon mo-icon--arrow-right'></i>, 'mo-video-thumb mo-video-thumb--right') }
+                  <VlogLiftup {...currentVideo} />
+                  { this.directionLink(nextVideo, <i className='mo-icon mo-icon--arrow-left'></i>, 'mo-video-thumb mo-video-thumb--left') }
+                </div>
+              </div>
             </div>
+            <div className='mo-colorwrap mo-colorwrap--purple'>
+              <div className='mo-grid'>
+                <h3>Previous episodes</h3>
+                  <div className='mo-thumbnail-wrapper'>
+                  { 
+                    videos.map((v, i) => {
+                      return <ThumbnailLink isCurrent={ currentIdx === i  } key={i} thumb={v.thumb} slug={v.slug.en} />;
+                    })
+                  }
+                </div>
+              </div>
             </div>
-          </div>
             <div className='mo-colorwrap mo-colorwrap--athensgrey'>
-            <div className='mo-grid'>
-                <h3>{currentVideo.title.en }</h3>
-              { this.parsePlainText(currentVideo.description.en) }
-              </div>
-          </div>
-          <div className='mo-colorwrap mo-colorwrap--white mo-colorwrap--white--border mo-colorwrap--nopadding '>
-        <div className='mo-grid'>
-          <div className='mo-footer'>
+              <div className='mo-grid'>
+                  <h3>{currentVideo.title.en }</h3>
+                { this.parsePlainText(currentVideo.description.en) }
+                </div>
+            </div>
+            <div className='mo-colorwrap mo-colorwrap--white mo-colorwrap--white--border mo-colorwrap--nopadding '>
+              <div className='mo-grid'>
+                <div className='mo-footer'>
             <div className='mo-footer__some'>
               <ul className='mo-footer__some__ul'>
                 <li className='mo-footer__some__li'><a href='https://www.facebook.com/mondaydigital' className='mo-footer__some__item mo-footer__some__item--border'  target='_blank'><i className='mo-icon mo-icon--facebook'></i><span className='mo-footer__some__text'>Facebook</span></a></li>
