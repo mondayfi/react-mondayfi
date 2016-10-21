@@ -44,7 +44,7 @@ export default class FrontPage extends Component {
 
         return (
             <div className={frontPageClasses}>
-                <FrontHero />
+                <Hero type={'front'} />
                 <WhatWeDo />
                 <CompetenceBullets />
                 <div className='mo-video-page-wrap'>

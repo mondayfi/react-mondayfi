@@ -30,7 +30,6 @@ export default function WhoWeAre() {
                                     className='mo-flexbox__item mo-flexbox__item--border mo-flexbox__item--centerphone'
                                 >
                                     <a href={`/${key}`} className='mo-authorimage'>
-                                        <div className='mo-authorimage__imagefilter'></div>
                                         <img
                                             className='mo-authorimage__image'
                                             src={`static/images/${key}.jpg`}
