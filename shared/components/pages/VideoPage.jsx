@@ -18,13 +18,16 @@ export default class FrontPage extends Component {
 
     parsePlainText(string) {
         const arrayOfText = string.split('\n');
+        const htmlTagsRegExp = /<[^>]*>/g; 
         const urlRegex =/(\b(https?|ftp|file):\/\/[-A-Z0-9+&@#\/%?=~_|!:,.;]*[-A-Z0-9+&@#\/%=~_|])/ig;
 
         return _(arrayOfText)
           .compact()
           .map((txt, i) => {
-            const txtWithParsedStrings = txt.replace(urlRegex, url => `<a target="__blank" class="mo_linkicon__link" href="${url}">${url}</a>`);
-            return <p key={i} dangerouslySetInnerHTML={{__html: txtWithParsedStrings}}></p>;
+            const allTagsRemoved = txt.replace(/<[^>]*>/g, '');
+            const txtWithParsedLinks = allTagsRemoved.replace(urlRegex, url => `<a target="__blank" class="mo_linkicon__link" href="${url}">${url}</a>`);
+
+            return <p key={txtWithParsedLinks} dangerouslySetInnerHTML={{__html: txtWithParsedLinks}}></p>;
           })
           .value();
     }
