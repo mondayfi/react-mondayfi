@@ -3,13 +3,13 @@ import { Link } from 'react-router';
 
 function ThumbnailLink(props) {
     const { slug, thumb, isCurrent } = props;
-    const debuggingStyle = !isCurrent ? {} :
+    const style = !isCurrent ? {} :
     {
         borderColor: '#fff'
     };
 
     return (
-        <Link to={`/vlog/${slug}`} className='mo-thumbnail' style={ debuggingStyle } >
+        <Link to={`/vlog/${slug}`} className='mo-thumbnail' style={style} >
             <img src={thumb} className='mo-thumbnail__img' ></img>
         </Link>
     );

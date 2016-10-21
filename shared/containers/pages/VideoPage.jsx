@@ -40,14 +40,15 @@ class VideoPageContainer extends Component {
         }
 
         const foundIndex = _.findIndex(video, v => v.slug.en === slug);
-        
-        if(props) {
+
+        if (props) {
             this.state = {
                 currentIndex: foundIndex
             };
+
             return;
         }
-        
+
         return this.setState({
             currentIndex: foundIndex
         });
@@ -81,6 +82,7 @@ class VideoPageContainer extends Component {
     render() {
         const { routeParams: { slug } } = this.props;
         const videos = this.videoThumbs;
+
         return <VideoPage currentSlug={slug} videos={videos} />;
     }
 }

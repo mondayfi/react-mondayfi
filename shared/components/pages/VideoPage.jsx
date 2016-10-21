@@ -20,18 +20,18 @@ export default class FrontPage extends Component {
 
     parsePlainText(string) {
         const arrayOfText = string.split('\n');
-        const htmlTagsRegExp = /<[^>]*>/g; 
-        const urlRegex =/(\b(https?|ftp|file):\/\/[-A-Z0-9+&@#\/%?=~_|!:,.;]*[-A-Z0-9+&@#\/%=~_|])/ig;
+        const htmlTagsRegExp = /<[^>]*>/g;
+        const urlRegex = /(\b(https?|ftp|file):\/\/[-A-Z0-9+&@#\/%?=~_|!:,.;]*[-A-Z0-9+&@#\/%=~_|])/ig;
 
         return _(arrayOfText)
-          .compact()
-          .map((txt, i) => {
-            const allTagsRemoved = txt.replace(/<[^>]*>/g, '');
-            const txtWithParsedLinks = allTagsRemoved.replace(urlRegex, url => `<a target="__blank" class="mo_linkicon__link" href="${url}">${url}</a>`);
+            .compact()
+            .map((txt, i) => {
+                const allTagsRemoved = txt.replace(htmlTagsRegExp, '');
+                const txtWithParsedLinks = allTagsRemoved.replace(urlRegex, url => `<a target="__blank" class="mo_linkicon__link" href="${url}">${url}</a>`);
 
-            return <p key={i} dangerouslySetInnerHTML={{__html: txtWithParsedLinks}}></p>;
-          })
-          .value();
+                return <p key={i} dangerouslySetInnerHTML={{ __html: txtWithParsedLinks }}></p>;
+            })
+            .value();
     }
 
     directionLink(video, label, additionalClass) {
@@ -59,35 +59,40 @@ export default class FrontPage extends Component {
         const nextVideo = videos[nextVideoIdx];
 
         return (
-          <div className={frontPageClasses}>
-          <Hero />
-            <div className='mo-video-page-wrap'>
-              <div className='mo-colorwrap mo-colorwrap--athensgrey'>
-                <div className='mo-grid'>
-                  { this.directionLink(prevVideo, <i className='mo-icon mo-icon--arrow-right'></i>, 'mo-video-thumb mo-video-thumb--right') }
-                  <VlogLiftup {...currentVideo} />
-                  { this.directionLink(nextVideo, <i className='mo-icon mo-icon--arrow-left'></i>, 'mo-video-thumb mo-video-thumb--left') }
+            <div className={frontPageClasses}>
+                <Hero />
+                <div className='mo-video-page-wrap'>
+                    <div className='mo-colorwrap mo-colorwrap--athensgrey'>
+                        <div className='mo-grid'>
+                            {this.directionLink(prevVideo, <i className='mo-icon mo-icon--arrow-right'></i>, 'mo-video-thumb mo-video-thumb--right')}
+                            <VlogLiftup {...currentVideo} />
+                            {this.directionLink(nextVideo, <i className='mo-icon mo-icon--arrow-left'></i>, 'mo-video-thumb mo-video-thumb--left')}
+                        </div>
+                    </div>
                 </div>
-              </div>
-            </div>
-            <div className='mo-colorwrap mo-colorwrap--purple'>
-              <div className='mo-grid'>
-                <h3>Previous episodes</h3>
-                  <div className='mo-thumbnail-wrapper'>
-                  {videos.map((v, i) =>
-                    <ThumbnailLink isCurrent={ currentIdx === i  } key={i} thumb={v.thumb} slug={v.slug.en} />
-                  )}
+                <div className='mo-colorwrap mo-colorwrap--purple'>
+                    <div className='mo-grid'>
+                        <h3>Previous episodes</h3>
+                        <div className='mo-thumbnail-wrapper'>
+                            {videos.map((v, i) =>
+                                <ThumbnailLink
+                                    isCurrent={currentIdx === i}
+                                    key={i}
+                                    thumb={v.thumb}
+                                    slug={v.slug.en}
+                                />
+                            )}
+                        </div>
+                    </div>
                 </div>
-              </div>
-            </div>
-            <div className='mo-colorwrap mo-colorwrap--athensgrey'>
-              <div className='mo-grid'>
-                  <h3>{currentVideo.title.en }</h3>
-                { this.parsePlainText(currentVideo.description.en) }
+                <div className='mo-colorwrap mo-colorwrap--athensgrey'>
+                    <div className='mo-grid'>
+                        <h3>{currentVideo.title.en}</h3>
+                        {this.parsePlainText(currentVideo.description.en)}
+                    </div>
                 </div>
+                <Footer />
             </div>
-          <Footer />
-        </div>
         );
     }
 }
