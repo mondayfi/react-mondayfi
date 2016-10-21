@@ -38,7 +38,7 @@ class VideoPageContainer extends Component {
         if (_.isEmpty(video)) {
             return;
         }
- 
+
         const foundIndex = _.findIndex(video, v => v.slug.en === slug);
         
         if(props) {
