@@ -1,3 +1,4 @@
+import _            from 'lodash';
 import express      from 'express';
 import cookieParser from 'cookie-parser';
 import querystring  from 'querystring';
@@ -89,7 +90,6 @@ app.use((req, res) => {
                     route  : renderProps.routes[renderProps.routes.length - 1].path,
                     state  : initialState
                 });
-
                 if (metaData.type === 'ACTIVATION') {
                     const activationId = renderProps.params.id;
                     const expectedPath =  `/activations/${activationId}/${makeSlug(metaData.title)}`;
@@ -117,9 +117,9 @@ app.use((req, res) => {
                     componentHTML,
                     initialState,
                     metaData,
-                    config : clientConfig
+                    config : clientConfig,
+                    url: req.url
                 });
-
                 return { html };
             })
             .then(({ isRedirect, redirectUrl, html }) => {
@@ -140,7 +140,10 @@ app.use((req, res) => {
 });
 
 
-function renderHTML({ componentHTML, initialState, metaData, config }) {
+function renderHTML({ componentHTML, initialState, metaData, config, url }) {
+    const imageSize = metaData.imageSize || { width: 158, width: 158 };
+    const noPrevValues = _(metaData.previous).values().isEmpty();
+    const previousLink = noPrevValues ? '' : `<link rel="prev" title="${metaData.previous.title}" href="${config.staticUrl}/${metaData.previous.slug}" />`;
     return `
         <!DOCTYPE html>
         <html>
@@ -158,8 +161,8 @@ function renderHTML({ componentHTML, initialState, metaData, config }) {
             <meta property="og:title" content="${escapeHTML(metaData.title)}" />
             <meta property="og:site_name" content="${escapeHTML(metaData.siteName)}"/>
             <meta property="og:image" content="${escapeHTML(metaData.image)}" />
-            <meta property="og:image:width" content="158" />
-            <meta property="og:image:height" content="158" />
+            <meta property="og:image:width" content="${imageSize.width}" />
+            <meta property="og:image:height" content="${imageSize.height}" />
             <meta property="og:description" content="${escapeHTML(metaData.description)}" />
             <meta property="og:locale" content="en_US" />
             <meta name="twitter:card" content="summary" />
@@ -168,7 +171,8 @@ function renderHTML({ componentHTML, initialState, metaData, config }) {
             <meta name="twitter:description" content="${escapeHTML(metaData.description)}" />
             <meta name="twitter:image" content="${escapeHTML(metaData.image)}" />
             <meta property="fb:app_id" content="${escapeHTML(config.facebookAppId)}" />
-
+            <link rel="canonical" href="${config.staticUrl}${url}">
+            ${previousLink}
             <link rel="stylesheet" href="${config.staticUrl}/static/build/main.css">
         </head>
         <body>
