@@ -5,6 +5,8 @@ import _           from 'lodash';
 import clientConfig              from '../etc/client-config.json';
 import { getSupportedLocales }   from '../shared/utils';
 
+const TITLE_SUFFIX = ` | Monday Digital`;
+
 export function fetchComponentsData({ dispatch, components, params, query, locale }) {
     const promises = components.map(current => {
         const component = current.WrappedComponent ? current.WrappedComponent : current;
@@ -38,14 +40,14 @@ export function getMetaDataFromState({ route, state, params = {}, query = {}, la
 
         return {
             type        : 'VIDEO',
-            title       : current.get('title.en', 'Weeks have never started this well') +' | Monday Digital',
+            title       : current.get('title.en', 'Weeks have never started this well') + TITLE_SUFFIX,
             siteName    : 'Monday.fi',
             image       : current.get('thumb', 'http://monday.fi/images/monday_logo.svg'),
             description : description.value(),
             slug        : current.get('slug.en', ''),
             imageSize   : { width: 1687 , height: 949 },
             previous    : {
-                title: previous.get('title.en', 'Weeks have never started this well') +' | Monday Digital',
+                title: previous.get('title.en', 'Weeks have never started this well') + TITLE_SUFFIX,
                 slug: previous.get('slug.en', '')
             }
         };
@@ -54,7 +56,7 @@ export function getMetaDataFromState({ route, state, params = {}, query = {}, la
 
     return {
         type        : 'MAIN',
-        title       : 'Weeks have never started this well',
+        title       : 'Weeks have never started this well' + TITLE_SUFFIX,
         siteName    : 'Monday.fi',
         image       : 'http://monday.fi/images/monday_logo.svg',
         description : `Monday makes razor sharp online services that match the demand of today's users.`

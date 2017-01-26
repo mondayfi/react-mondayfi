@@ -6,7 +6,6 @@ const DEFAULT_STATE = {
 };
 
 export default function getLatest(state = DEFAULT_STATE, action) {
-    console.log(state)
     switch (action.type) {
         case LOAD_ONE_VIDEO_SUCCESS: {
             return {
