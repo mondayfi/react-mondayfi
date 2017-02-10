@@ -87,6 +87,26 @@
   }
 }
 
+.mo-hero--abtest {
+  
+  .mo-hero__slide {
+    background-image: url("/static/images/splash-phone-2.jpg");
+    background-position: top center;
+
+    @include breakpoint(tablet-and-up) {
+      background-image: url("/static/images/splash-desktop-2.jpg")
+    }
+  }
+  
+  .mo-hero__title {
+    color: $color-black;
+  }
+    
+  .mo-hero__clouds {
+    display: none; 
+  }
+}
+
 @-webkit-keyframes horizontalLoop {
   0   {-webkit-transform: translate3d(0,0,0);}
   100%  { -webkit-transform: translate3d(-50%,0,0);}

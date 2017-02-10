@@ -10,7 +10,7 @@ export default class WhatWeDo extends Component {
                         {'We are an '}
                         <strong>{'independent studio'}</strong>
                         {' in Helsinki packed with experience and insight.'}
-                        {"We create razor sharp services that match the demand of today's users. "}
+                        {" We create razor sharp services that match the demand of today's users. "}
                     </p>
                     <p>
                         {'We work closely together with our clients to produce the best possible software for '}

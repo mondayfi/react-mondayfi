@@ -34,7 +34,6 @@ export default class FrontPage extends Component {
                 <div className={frontPageClasses}>
                     <Hero type={'front'} />
                     <WhatWeDo />
-                    <CompetenceBullets />
                     <WhoWeAre />
                     <Testimonial />
                     <Footer />
@@ -46,7 +45,6 @@ export default class FrontPage extends Component {
             <div className={frontPageClasses}>
                 <Hero type={'front'} />
                 <WhatWeDo />
-                <CompetenceBullets />
                 <VlogLiftup {...videoEpisode} type={'front'} />
                 <WhoWeAre />
                 <Testimonial />
