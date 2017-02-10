@@ -1,3 +1,4 @@
+import _            from 'lodash';
 import express      from 'express';
 import cookieParser from 'cookie-parser';
 import querystring  from 'querystring';
@@ -35,7 +36,13 @@ const i18nToolsRegistry = {
 
 const app = express();
 app.use('/static', express.static('public/static'));
+
 app.use(cookieParser());
+
+
+app.get('/newsletter', (req, res) => {
+    res.redirect('http://newsletter.monday.fi/');
+});
 
 app.use((req, res) => {
     // // Process old links like /en/activations
@@ -83,7 +90,6 @@ app.use((req, res) => {
                     route  : renderProps.routes[renderProps.routes.length - 1].path,
                     state  : initialState
                 });
-
                 if (metaData.type === 'ACTIVATION') {
                     const activationId = renderProps.params.id;
                     const expectedPath =  `/activations/${activationId}/${makeSlug(metaData.title)}`;
@@ -111,9 +117,9 @@ app.use((req, res) => {
                     componentHTML,
                     initialState,
                     metaData,
-                    config : clientConfig
+                    config : clientConfig,
+                    url: req.url
                 });
-
                 return { html };
             })
             .then(({ isRedirect, redirectUrl, html }) => {
@@ -133,7 +139,11 @@ app.use((req, res) => {
     });
 });
 
-function renderHTML({ componentHTML, initialState, metaData, config }) {
+
+function renderHTML({ componentHTML, initialState, metaData, config, url }) {
+    const imageSize = metaData.imageSize || { width: 158, width: 158 };
+    const noPrevValues = _(metaData.previous).values().isEmpty();
+    const previousLink = noPrevValues ? '' : `<link rel="prev" title="${metaData.previous.title}" href="${config.staticUrl}/${metaData.previous.slug}" />`;
     return `
         <!DOCTYPE html>
         <html>
@@ -151,8 +161,8 @@ function renderHTML({ componentHTML, initialState, metaData, config }) {
             <meta property="og:title" content="${escapeHTML(metaData.title)}" />
             <meta property="og:site_name" content="${escapeHTML(metaData.siteName)}"/>
             <meta property="og:image" content="${escapeHTML(metaData.image)}" />
-            <meta property="og:image:width" content="158" />
-            <meta property="og:image:height" content="158" />
+            <meta property="og:image:width" content="${imageSize.width}" />
+            <meta property="og:image:height" content="${imageSize.height}" />
             <meta property="og:description" content="${escapeHTML(metaData.description)}" />
             <meta property="og:locale" content="en_US" />
             <meta name="twitter:card" content="summary" />
@@ -161,17 +171,35 @@ function renderHTML({ componentHTML, initialState, metaData, config }) {
             <meta name="twitter:description" content="${escapeHTML(metaData.description)}" />
             <meta name="twitter:image" content="${escapeHTML(metaData.image)}" />
             <meta property="fb:app_id" content="${escapeHTML(config.facebookAppId)}" />
-
+            <link rel="canonical" href="${config.staticUrl}${url}">
+            ${previousLink}
             <link rel="stylesheet" href="${config.staticUrl}/static/build/main.css">
         </head>
         <body>
         <div id="react-view">${componentHTML}</div>
-          <script type="application/javascript">
+        <script type="application/javascript">
             window.__CONFIG__ = ${JSON.stringify(config)};
             window.__INITIAL_STATE__ = ${JSON.stringify(initialState)};
-          </script>
-
-          <script type="application/javascript" src="${config.staticUrl}/static/build/main.js"></script>
+        </script>
+        <script>
+            (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+            (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+            m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+            })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+            ga('create', 'UA-62552475-1', 'auto');
+            ga('send', 'pageview');
+        </script>
+        <script>
+            (function(f,b){
+                var c;
+                f.hj=f.hj||function(){(f.hj.q=f.hj.q||[]).push(arguments)};
+                f._hjSettings={hjid:32935, hjsv:4};
+                c=b.createElement("script");c.async=1;
+                c.src="//static.hotjar.com/c/hotjar-"+f._hjSettings.hjid+".js?sv="+f._hjSettings.hjsv;
+                b.getElementsByTagName("head")[0].appendChild(c);
+            })(window,document);
+        </script>
+        <script type="application/javascript" src="${config.staticUrl}/static/build/main.js"></script>
         </body>
         </html>
     `;

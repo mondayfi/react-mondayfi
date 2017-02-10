@@ -1,9 +1,11 @@
 import Promise     from 'bluebird';
-import geoip       from 'geoip-lite';
 import strformat   from 'strformat';
+import _           from 'lodash';
 
 import clientConfig              from '../etc/client-config.json';
 import { getSupportedLocales }   from '../shared/utils';
+
+const TITLE_SUFFIX = ` | Monday Digital`;
 
 export function fetchComponentsData({ dispatch, components, params, query, locale }) {
     const promises = components.map(current => {
@@ -18,76 +20,43 @@ export function fetchComponentsData({ dispatch, components, params, query, local
 }
 
 export function getMetaDataFromState({ route, state, params = {}, query = {}, lang }) {
-    // if (route === '/activations/:id' || route === '/activations/:id/:title') {
-    //     const { name, message, pictureURL } = state.currentActivation.activation;
+    if(route === '/vlog/:slug') {
 
-    //     return {
-    //         type        : 'ACTIVATION',
-    //         title       : name,
-    //         siteName    : "Monday Digital",
-    //         image       : pictureURL ? pictureURL.replace('svg', 'png') : '',
-    //         description : message
-    //     };
-    // }
+        const videos = _.chain(state)
+            .get('video.video', []);
 
-    // if (route === '/result/:id/:userId' && state.currentActivation.activation) {
-    //     const { name, pictureURL, message, userQuizSession } = state.currentActivation.activation;
+        const currentIdx = videos.findIndex(d => _.get(d, 'slug.en') === params.slug).value()
+        const prevIdx = currentIdx + 1;
+        const current = videos.get(`[${currentIdx}]`, {});
+        const previous = videos.get(`[${prevIdx}]`, {})
+        const description = current
+            .get('description.en')
+            .split('\n')
+            .compact()
+            .reject(d => (
+                _.contains(d, 'https://goo.gl/tZg3Y6') || _.contains(d, 'https://goo.gl/GzYfBP')
+            ))
+            .head();
 
-    //     const greeting = _getGreeting(state.currentAssessmentSystem.assessmentSystem, userQuizSession.score);
-
-    //     const sharePhrases = {
-    //         en: 'I have passed test "{name}" and gained {score}%. My result is: "{greeting}"'
-    //     };
-
-    //     const title = strformat(sharePhrases[lang], { name, score: userQuizSession.score, greeting: greeting.phrase });
-    //     const greetingDescription = greeting.description || '';
-
-    //     return {
-    //         type        : 'RESULT',
-    //         title,
-    //         siteName    : "Monday Digital",
-    //         image       : pictureURL ? pictureURL.replace('svg', 'png') : '',
-    //         description : greetingDescription || message
-    //     };
-    // }
-
-    // if (route === '/share/:key') {
-    //     const { customShareInfo } = clientConfig;
-    //     const { key } = params;
-
-    //     if (key && customShareInfo && customShareInfo[key]) {
-    //         const { title, pictureURL, description } = customShareInfo[key];
-
-    //         return {
-    //             type        : 'SHARE',
-    //             title       : strformat(title, query),
-    //             siteName    : 'It\'s quiz',
-    //             image       : pictureURL,
-    //             description : strformat(description, query)
-    //         };
-    //     }
-    // }
-
-    // if (route === '/promo/:key') {
-    //     const { promos } = clientConfig;
-    //     const { key } = params;
-
-    //     if (key && promos && promos[key]) {
-    //         const { title, image, description } = promos[key];
-
-    //         return {
-    //             type     : 'PROMO',
-    //             image,
-    //             title,
-    //             description,
-    //             siteName : 'It\'s quiz'
-    //         };
-    //     }
-    // }
+        return {
+            type        : 'VIDEO',
+            title       : current.get('title.en', 'Weeks have never started this well') + TITLE_SUFFIX,
+            siteName    : 'Monday.fi',
+            image       : current.get('thumb', 'http://monday.fi/images/monday_logo.svg'),
+            description : description.value(),
+            slug        : current.get('slug.en', ''),
+            imageSize   : { width: 1687 , height: 949 },
+            previous    : {
+                title: previous.get('title.en', 'Weeks have never started this well') + TITLE_SUFFIX,
+                slug: previous.get('slug.en', '')
+            }
+        };
+        return  {};
+    }
 
     return {
         type        : 'MAIN',
-        title       : 'Weeks have never started this well',
+        title       : 'Weeks have never started this well' + TITLE_SUFFIX,
         siteName    : 'Monday.fi',
         image       : 'http://monday.fi/images/monday_logo.svg',
         description : `Monday makes razor sharp online services that match the demand of today's users.`
