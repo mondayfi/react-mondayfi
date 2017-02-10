@@ -88,7 +88,7 @@
 }
 
 .mo-hero--abtest {
-  
+
   .mo-hero__slide {
     background-image: url("/static/images/splash-phone-2.jpg");
     background-position: top center;
@@ -100,6 +100,12 @@
   
   .mo-hero__title {
     color: $color-black;
+    width: 240px;
+    text-align: left;
+    @include breakpoint(tablet-and-up) {
+      width: auto;
+      text-align: center;
+    }
   }
     
   .mo-hero__clouds {
