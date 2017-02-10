@@ -8,7 +8,6 @@ import { isEmpty } from 'lodash';
 
 import Hero from '../Hero.jsx';
 import WhatWeDo from '../WhatWeDo.jsx';
-import CompetenceBullets from '../CompetenceBullets.jsx';
 import WhoWeAre from '../WhoWeAre.jsx';
 import VlogLiftup from '../VlogLiftup.jsx';
 import Testimonial from '../Testimonial.jsx';

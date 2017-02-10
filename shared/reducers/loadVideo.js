@@ -18,4 +18,4 @@ export default function getLatest(state = DEFAULT_STATE, action) {
         default:
             return state;
     }
-};
+}
