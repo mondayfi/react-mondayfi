@@ -27,11 +27,6 @@ export default class Footer extends Component {
                                         {companyInfo.contactEmail}
                                     </a>
                                 </p>
-                                <p>
-                                    {companyInfo.streetAddress},
-                                    <br />
-                                    {`${companyInfo.postalCode} ${companyInfo.city}`}
-                                </p>
                             </div>
                         </div>
                     </div>
