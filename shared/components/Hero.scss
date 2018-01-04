@@ -12,6 +12,7 @@
 
   &--narrow {
     height: 90px;
+
     @include breakpoint(tablet-and-up) {
       height: 100px;
     }
@@ -39,22 +40,47 @@
     bottom: 0;
     left: 0;
     right: 0;
-    background-image: url("/static/images/splash-phone.jpg");
+    background-image: url("/static/images/splash-phone-2.jpg");
     background-size: cover;
-    background-position: center;
+    background-position: top;
+    background-repeat: no-repeat;
+    background-color: #eaebef;
+
+    .mo-hero--narrow & {
+      background-position: top;
+      background-size: 970px;
+      background-image: none;
+
+      @include breakpoint(tablet-and-up) {
+        background-image: url("/static/images/splash-desktop-2.jpg")
+      }
+    }
 
     @include breakpoint(tablet-and-up) {
-      background-image: url("/static/images/splash-desktop.jpg")
+      background-image: url("/static/images/splash-desktop-2.jpg")
     }
   }
 
   &__title {
     margin: 0;
-    color: $color-white;
+    color: $color-black;
     padding-top: 3.1em;
 
     @include breakpoint(tablet-and-up) {
       padding-top: 3.6em;
+    }
+  }
+
+  &__logo-title {
+    padding-top: 5px;
+    vertical-align: middle;
+    display: inline-block;
+    text-align: right;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+    float: right;
+
+    @include breakpoint(tablet-and-up) {
+      padding-top: 8px;
     }
   }
 
@@ -102,6 +128,7 @@
     color: $color-black;
     width: 240px;
     text-align: left;
+    
     @include breakpoint(tablet-and-up) {
       width: auto;
       text-align: center;

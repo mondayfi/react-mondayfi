@@ -1,5 +1,8 @@
 .mo-stand-alone {
-  text-align: center;
+  text-align: left;
+  margin-bottom: 2em;
+  @include breakpoint(tablet-and-up) {
+  }
 
   @include breakpoint(tablet-and-up) {
     float: right;
@@ -11,5 +14,12 @@
   }
   &__sub-title {
     margin: 0 0 15px 0;
+  }
+
+  .mo_linkicon {
+
+    @include breakpoint(tablet-and-up) {
+      margin-left: 20px;
+    }
   }
 }

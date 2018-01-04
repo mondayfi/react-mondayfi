@@ -5,8 +5,8 @@ export default function Testimonial() {
         <div className='mo-colorwrap mo-colorwrap--athensgrey mo-colorwrap--largepadding'>
             <div className='mo-grid'>
                 <p className='mo-textitalic'>
-                    {'I\'ve had the pleasure to work with Pyry & Samuel.'}
-                    {'They are great guys and always eager to push our web service'}
+                    {'I\'ve had the pleasure to work with Pyry & Samuel. '}
+                    {'They are great guys and always eager to push our web service '}
                     {'forward with new and fresh ideas.'}
                     <br />
                 </p>

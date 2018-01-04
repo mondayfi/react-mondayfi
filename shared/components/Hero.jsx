@@ -11,7 +11,7 @@ function Hero(props) {
             <div className='mo-hero'>
                 <div className='mo-hero__slide'>
                     <div className='mo-hero__content mo-grid'>
-                        <img src='static/images/monday_logo.svg' className='mo-hero__logo' />
+                        <img src='static/images/monday_logo-black.svg' className='mo-hero__logo' />
                         <h1
                             className='mo-hero__title mo-hero__title--fontbody mo-textaligncenter mo-h2--fontbody mo-h2'
                         >
@@ -26,7 +26,7 @@ function Hero(props) {
             <div className='mo-hero mo-hero--narrow'>
                 <div className='mo-hero__slide'>
                     <div className='mo-hero__content mo-grid'>
-                        <a href='/'><img src='/static/images/monday_logo.svg' className='mo-hero__logo' /></a>
+                        <a href='/'><img src='/static/images/monday_logo-black.svg' className='mo-hero__logo' /><span className="mo-hero__logo-title">Back to Home</span></a>
                     </div>
                 </div>
             </div>

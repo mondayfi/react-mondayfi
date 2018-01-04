@@ -2,6 +2,11 @@ import React from 'react';
 import Hero from '../Hero.jsx';
 import Footer from '../Footer.jsx';
 import config from '../../config';
+import VideoContainer from '../VideoContainer.jsx';
+
+if (process.env.BROWSER) {
+    require('../Clients.scss');
+}
 
 function SamuelPage() {
     const info = config.personnelInfo.samuel;
@@ -36,33 +41,98 @@ function SamuelPage() {
                     </div>
                     <h2 className='mo-stand-alone__title'>{`${info.firstName} ${info.lastName}`}</h2>
                     <h3 className='mo-stand-alone__sub-title'>{info.title}</h3>
-                    <p>I'm a Helsinki based creative with a strong tech knowledge.</p>
-
+                    <p>Tjena! I'm Samuel, a developer with a passion for creating products with extraordinary UX.</p>
+                    <p>You could call me a front-end/UI/web developer, but I have a background in design, meaning I'm quite the multitool when it comes to creating digital products.
+                    
+                    <p>I'm quite fond of React, but I've also worked extensively with Angular, Backbone and some other frameworks. Style guides and pattern libraries is something I've been pushing early on.
+                    </p>
+                    <p>I have worked with AB-testing & analytics, but previously also in games namely creating the UI and HUD systems for Remedy Entertainment's newest shooter.</p>
+                    </p>
                     <p>
-                        My main focus is to build razor sharp interfaces for the digital age.
-                        I love working with creative people and learning from each respective fields.
-                        When creating experiences I aim for everything to make perfect sense.
+                        If you'd like to learn more about me, check out our YouTube-channel:
                     </p>
 
-                    <p>
-                        If you'd like to learn more about me, head over to:
-                    </p>
-
-                    <ul className='mo-inline-list'>
-                        <li className='mo-inline-list__item'><a href='https://medium.com/@samuelklinkmann/' className='mo_linkicon mo_linkicon--black'><i className='mo-icon mo-icon--medium'></i><span className='mo_linkicon__link'>Medium</span></a></li>
-                        <li className='mo-inline-list__item'><a href='https://twitter.com/samuelklinkmann' className='mo_linkicon mo_linkicon--black'><i className='mo-icon mo-icon--twitter'></i><span className='mo_linkicon__link'>Twitter</span></a></li>
-                        <li className='mo-inline-list__item'><a href='http://open.spotify.com/user/klinkmann' className='mo_linkicon mo_linkicon--black'><i className='mo-icon mo-icon--spotify'></i><span className='mo_linkicon__link'>Spotify</span></a></li>
-                    </ul>
+                    <VideoContainer id='MKOWMlUuf34' />
                 </div>
             </div>
-
             <div className='mo-colorwrap mo-colorwrap--purple mo-colorwrap--largepadding'>
                 <div className='mo-grid'>
+                    <h2 className='mo-stand-alone__title'>Selected clients</h2>
+                    <div className="mo-logo-wall">
+                        <p>Here's some of the companies I have had the pleasure to work with.</p>
 
+                        <div className="mo-clients">
+                            <div className="mo-clients__item">
+                                <a href="https://www.remedygames.com/" target="_blank">
+                                    <img className="mo-clients__img" src="/static/images/remedy.png" alt="Remedy" />
+                                </a>
+                            </div>
+                            <div className="mo-clients__item">
+                                <a href="https://www.elisa.fi/" target="_blank">
+                                    <img className="mo-clients__img" src="/static/images/elisa.png" alt="Elisa" />
+                                </a>
+                            </div>
+                            <div className="mo-clients__item">
+                                <a href="https://www.idean.com/" target="_blank">
+                                    <img className="mo-clients__img" src="/static/images/idean.png" alt="Idean" />
+                                </a>
+                            </div>
+                            <div className="mo-clients__item">
+                                <a href="https://www.valio.com/" target="_blank">
+                                    <img className="mo-clients__img" src="/static/images/valio_white.png" alt="Valio" />
+                                </a>
+                            </div>
+                            <div className="mo-clients__item">
+                                <a href="https://www.palmu.fi/" target="_blank">
+                                    <img className="mo-clients__img" src="/static/images/palmu.png" alt="Palmu" />
+                                </a>
+                            </div>
+                            <div className="mo-clients__item">
+                                <a href="https://www.veikkaus.fi/" target="_blank">
+                                    <img className="mo-clients__img" src="/static/images/veikkaus.png" alt="Veikkaus" />
+                                </a>
+                            </div>
+                            <div className="mo-clients__item">
+                                <a href="https://www.reaktor.com/" target="_blank">
+                                    <img className="mo-clients__img" src="/static/images/reaktor.png" alt="Reaktor" />
+                                </a>
+                            </div>
+                            <div className="mo-clients__item">
+                                <a href="https://www.sc5.io/" target="_blank">
+                                    <img className="mo-clients__img" src="/static/images/sc5.png" alt="SC5" />
+                                </a>
+                            </div>
+                            <div className="mo-clients__item">
+                                <a href="http://www.richen.fi/" target="_blank">
+                                    <img className="mo-clients__img" src="/static/images/richen.png" alt="Richen" />
+                                </a>
+                            </div>
+                            <div className="mo-clients__item">
+                                <a href="https://www.remedygames.com/" target="_blank">
+                                    <img className="mo-clients__img" src="/static/images/valve.png" alt="Valve" />
+                                </a>
+                            </div>
+                            <div className="mo-clients__item">
+                                <a href="https://www.remedygames.com/" target="_blank">
+                                    <img className="mo-clients__img" src="/static/images/ixonos.png" alt="Ixonos" />
+                                </a>
+                            </div>
+                            <div className="mo-clients__item">
+                                <a href="https://www.remedygames.com/" target="_blank">
+                                    <img className="mo-clients__img" src="/static/images/nordkapp.png" alt="Nordkapp" />
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div className='mo-colorwrap mo-colorwrap--athensgrey mo-colorwrap--largepadding'>
+                <div className='mo-grid'>
                     <p className='mo-textitalic'>
-                        'Samuel can best be described as the glue between designers and developers.'
-                        'Samuel is a great asset when you need responsive interfaces for demanding projects.'
-                        'I can warmly recommend him.'
+                        Samuel can best be described as the glue between designers and developers.
+                        Samuel is a great asset when you need responsive interfaces for demanding projects.
+                        I can warmly recommend him.
                         <br />
                     </p>
 
@@ -76,13 +146,12 @@ function SamuelPage() {
                     <p>- Jouni Linkola, Service Design lead at <a href='http://elisa.fi' target='_blank' className='mo_linkicon__link'>Elisa Oy</a></p>
                 </div>
             </div>
-
-            <div className='mo-colorwrap mo-colorwrap--athensgrey mo-colorwrap--largepadding'>
+            <div className='mo-colorwrap mo-colorwrap--skyblue mo-colorwrap--largepadding'>
                 <div className='mo-grid'>
                     <p className='mo-textitalic'>
-                        'Samuel did a short project for Veikkaus.'
-                        'He helped us to improve the usability of the Veikkaus.fi mobile page.'
-                        'Samuel is a very competent UX developer and a good team player'
+                        Samuel did a short project for Veikkaus.
+                        He helped us to improve the usability of the Veikkaus.fi mobile page.
+                        Samuel is a very competent UX developer and a good team player.
                         <br />
                     </p>
                     <div className='mo-authorimage mo-authorimage--small'>

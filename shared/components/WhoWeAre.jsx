@@ -15,8 +15,8 @@ export default function WhoWeAre() {
                     {'You could call him a Full Stack developer.'}
                 </p>
                 <p>
-                    {'Samuel, with his design background really enjoys creating exceptionally'}
-                    {'well behaving responsive front-ends. You could call him a UX developer.'}
+                    {'Samuel, with his design background really enjoys creating exceptionally '}
+                    {' well-behaving responsive front-ends. You could call him a UX developer.'}
                 </p>
 
                 <div className='mo-flexbox' id='contact'>

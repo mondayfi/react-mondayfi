@@ -4,8 +4,8 @@
     "companyInfo": {
         "officialName": "Monday Digital Oy",
         "businessId": "2435962-4",
-        "streetAddress": "Viides Linja 4",
-        "postalCode": "00530",
+        "streetAddress": "",
+        "postalCode": "",
         "city": "Helsinki",
         "contactEmail": "info@monday.fi",
         "someLinks": [
