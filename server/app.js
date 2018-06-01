@@ -150,8 +150,7 @@ function renderHTML({ componentHTML, initialState, metaData, config, url }) {
         <head>
             <meta charset="utf-8">
             <meta name="viewport" content="width=device-width, initial-scale=1">
-            <script src="//use.typekit.net/fow1tld.js"></script>
-            <script>try{Typekit.load();}catch(e){}</script>
+            <link rel="stylesheet" href="https://use.typekit.net/wgu0qkj.css">
             <link rel="shortcut icon" href="/static/favicon.ico"/>
             <link rel="icon" type="image/png" href="/static/favicon-32x32.png" sizes="32x32" />
             <link rel="icon" type="image/png" href="/static/favicon-16x16.png" sizes="16x16" />
