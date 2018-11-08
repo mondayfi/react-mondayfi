@@ -42,12 +42,12 @@
     right: 0;
     background-image: url("/static/images/splash-phone-2.jpg");
     background-size: cover;
-    background-position: top;
+    background-position: top right;
     background-repeat: no-repeat;
     background-color: #eaebef;
 
     .mo-hero--narrow & {
-      background-position: top;
+      background-position: top center;
       background-size: 970px;
       background-image: none;
 
@@ -57,6 +57,7 @@
     }
 
     @include breakpoint(tablet-and-up) {
+      background-position: top center;
       background-image: url("/static/images/splash-desktop-2.jpg")
     }
   }
@@ -117,9 +118,10 @@
 
   .mo-hero__slide {
     background-image: url("/static/images/splash-phone-2.jpg");
-    background-position: top center;
+    background-position: right top;
 
     @include breakpoint(tablet-and-up) {
+      background-position: top center;
       background-image: url("/static/images/splash-desktop-2.jpg")
     }
   }

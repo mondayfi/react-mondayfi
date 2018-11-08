@@ -77,11 +77,11 @@ export default function Testimonial() {
                 </div>
             </div>
 
-            <div className='mo-colorwrap mo-colorwrap--athensgrey mo-colorwrap--largepadding'>
+            <div className='mo-colorwrap mo-colorwrap--white mo-colorwrap--largepadding'>
                 <div className='mo-grid'>
                     <p className='mo-textitalic'>
-                        {'Samuel can best be described as the glue between designers and developers.'}
-                        {'Samuel is a great asset when you need responsive interfaces for demanding projects.'}
+                        {'Samuel can best be described as the glue between designers and developers. '}
+                        {'Samuel is a great asset when you need responsive interfaces for demanding projects. '}
                         {'I can warmly recommend him.'}
                         <br />
                     </p>
@@ -96,22 +96,35 @@ export default function Testimonial() {
                     <p>- Jouni Linkola, Service Design lead at <a href='http://elisa.fi' target='_blank' className='mo_linkicon__link'>Elisa Oy</a></p>
                 </div>
             </div>
-            <div className='mo-colorwrap mo-colorwrap--skyblue mo-colorwrap--largepadding'>
+            <div className='mo-colorwrap mo-colorwrap--athensgrey mo-colorwrap--largepadding'>
                 <div className='mo-grid'>
-                    <p className='mo-textitalic'>
-                        Samuel did a short project for Veikkaus.
-                        He helped us to improve the usability of the Veikkaus.fi mobile page.
-                        Samuel is a very competent UX developer and a good team player.
-                        <br />
+                    <p className='mo-textitalic'>I have no doubt in saying that Samuel was key in one of our biggest projects. A pioneer that brought not only great technical skills but also clarity, an eye for detail and organisation into the future of the Adidas Design Language. In my eyes, I consider Samuel as a Design Systems Advocate and a true wingman that only brings positivism and perspective to any UX|UI|Dev project.
                     </p>
                     <div className='mo-authorimage mo-authorimage--small'>
                         <img
                             className='mo-authorimage__image'
-                            src='/static/images/melina.jpg'
-                            alt='Melina Kukkasela'
+                            src='/static/images/marco.jpg'
+                            alt='Marco Cardoso'
                         />
                     </div>
-                    <p>- Melina Kukkasela, UX Lead at <a href='http://veikkaus.fi' target='_blank' className='mo_linkicon__link'>Veikkaus Oy</a></p>
+                    <p>- Marco Cardoso, Senior UI Lead Developer at <a href='http://adidas.com' target='_blank' className='mo_linkicon__link'>Adidas</a></p>
+                </div>
+            </div>
+            <div className='mo-colorwrap mo-colorwrap--white mo-colorwrap--largepadding'>
+                <div className='mo-grid'>
+                    <p className='mo-textitalic'>
+                        {'Samuel worked on a high pressure globally visible project for one of the biggest sports manufacturers in the world. As a key member of the team implementing a facelift for their entire eCom site and developing a digital style guide alongside, he got only praise from everyone he worked with. Samuel brought clarity and direction to the project with his patience, experience and competence. Samuel has a rare skillset of being an expert in both UX design and front-end development combined with great social skills and a get things done attitude. I really hope I get a chance to work with him again in the future.'}
+                        <br />
+                    </p>
+
+                    <div className='mo-authorimage mo-authorimage--small'>
+                        <img
+                            className='mo-authorimage__image'
+                            src='/static/images/samuli.jpg'
+                            alt='Samuli Karjula'
+                        />
+                    </div>
+                    <p>- Samuli Karjula, Director of Operations at <a href='http://reaktor.com' target='_blank' className='mo_linkicon__link'>Reaktor B.V. Amsterdam</a></p>
                 </div>
             </div>
         </div>
