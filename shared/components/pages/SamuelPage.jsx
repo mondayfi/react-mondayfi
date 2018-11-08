@@ -41,17 +41,6 @@ function SamuelPage() {
                     </div>
                     <h2 className='mo-stand-alone__title'>{`${info.firstName} ${info.lastName}`}</h2>
                     <h3 className='mo-stand-alone__sub-title'>{info.title}</h3>
-                    <p>Tjena! I'm Samuel, a developer with a passion for creating products with extraordinary UX.</p>
-                    <p>You could call me a front-end/UI/web developer, but I have a background in design, meaning I'm quite the multitool when it comes to creating digital products.
-                    
-                    <p>I'm quite fond of React, but I've also worked extensively with Angular, Backbone and some other frameworks. Style guides and pattern libraries is something I've been pushing early on.
-                    </p>
-                    <p>I have worked with AB-testing & analytics, but previously also in games namely creating the UI and HUD systems for Remedy Entertainment's newest shooter.</p>
-                    </p>
-                    <p>
-                        If you'd like to learn more about me, check out our YouTube-channel:
-                    </p>
-
                     <VideoContainer id='MKOWMlUuf34' />
                 </div>
             </div>

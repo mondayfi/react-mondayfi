@@ -19,14 +19,13 @@ function Hero(props) {
                         </h1>
                     </div>
                 </div>
-                <div className='mo-hero__clouds mo-cloud-anim'></div>
             </div>
         ),
         other: (
             <div className='mo-hero mo-hero--narrow'>
                 <div className='mo-hero__slide'>
                     <div className='mo-hero__content mo-grid'>
-                        <a href='/'><img src='/static/images/monday_logo-black.svg' className='mo-hero__logo' /><span className="mo-hero__logo-title">Back to Home</span></a>
+                        <a href='/'><img src='/static/images/monday_logo-black.svg' className='mo-hero__logo' /><span className='mo-hero__logo-title'>Back to Home</span></a>
                     </div>
                 </div>
             </div>

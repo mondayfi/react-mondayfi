@@ -1,68 +1,41 @@
 import React from 'react';
-import _ from 'lodash';
 import config from '../config';
 
 export default function WhoWeAre() {
-    const personnel = _(config.personnelInfo).keys().sort().reverse().value();
+    const info = config.personnelInfo.samuel;
 
     return (
-        <div className='mo-colorwrap mo-colorwrap--purple'>
+        <div className='mo-colorwrap mo-colorwrap--white mo-colorwrap--white--border'>
             <div className='mo-grid'>
-                <h2>Who we are</h2>
-                <p>{'Monday is two guys who enjoyed working together so much they started their own thing.'}</p>
-                <p>
-                    {'Pyry has a wide range of experience, from UI development to Node.js back-ends.'}
-                    {'You could call him a Full Stack developer.'}
-                </p>
-                <p>
-                    {'Samuel, with his design background really enjoys creating exceptionally '}
-                    {' well-behaving responsive front-ends. You could call him a UX developer.'}
-                </p>
-
-                <div className='mo-flexbox' id='contact'>
-                    {
-                        _.map(personnel, (key, i) => {
-                            const person = config.personnelInfo[key];
-
-                            return (
-                                <div
-                                    key={key}
-                                    className='mo-flexbox__item mo-flexbox__item--border mo-flexbox__item--centerphone'
-                                >
-                                    <a href={`/${key}`} className='mo-authorimage'>
-                                        <img
-                                            className='mo-authorimage__image'
-                                            src={`static/images/${key}.jpg`}
-                                            alt={`${person.firstName}  ${person.lastName}`}
-                                        />
-                                    </a>
-                                    <h3 className='mo-author'>{`${person.firstName}  ${person.lastName}`}</h3>
-                                    <a href={`tel:${person.phone.link}`} className='mo_linkicon'>
-                                        <i className='mo-icon mo-icon--phone'></i>
-                                        <span className='mo_linkicon__link'>{`${person.phone.display}`}</span>
-                                    </a>
-                                    <br />
-                                    <a href={`email:${person.email}`} className='mo_linkicon'>
-                                        <i className='mo-icon mo-icon--envelope'></i>
-                                        <span className='mo_linkicon__link'>{`${person.email}`}</span>
-                                    </a>
-                                    <br />
-                                    <a href={`${person.linkedinLink}`} className='mo_linkicon' >
-                                        <i className='mo-icon mo-icon--linkedin'></i>
-                                        <span className='mo_linkicon__link'>LinkedIn</span>
-                                    </a>
-                                    <br />
-                                    <a
-                                        href={`/${key}`}
-                                        className='mo-button mo-button--white mo-button--margintop'
-                                    >
-                                        Read more
-                                    </a>
-                                </div>
-                            );
-                        })
-                    }
+                <div className='mo-stand-alone'>
+                    <div className='mo-authorimage mo-authorimage--stand-alone'>
+                        <img
+                            className='mo-authorimage__image'
+                            src='/static/images/samuel.jpg'
+                            alt={`${info.firstName} ${info.lastName}`}
+                        />
+                    </div>
+                    <a href={`tel:${info.phone.link}`} className='mo_linkicon  mo_linkicon--black'>
+                        <i className='mo-icon mo-icon--phone'></i>
+                        <span className='mo_linkicon__link'>{info.phone.display}</span>
+                    </a>
+                    <br />
+                    <a href={`mailto:${info.email}`} className='mo_linkicon  mo_linkicon--black'>
+                        <i className='mo-icon mo-icon--envelope'></i>
+                        <span className='mo_linkicon__link'>{info.email}</span>
+                    </a>
+                    <br />
+                    <a href={info.linkedinLink} className='mo_linkicon  mo_linkicon--black'>
+                        <i className='mo-icon mo-icon--linkedin'></i>
+                        <span className='mo_linkicon__link'>{'LinkedIn'}</span>
+                    </a>
                 </div>
+                <h2 className='mo-stand-alone__title'>{`${info.firstName} ${info.lastName}`}</h2>
+                <h3 className='mo-stand-alone__sub-title'>{info.title}</h3>
+                <p>{'Tjena! I\'m Samuel, a developer with a passion for creating products with extraordinary UX.'}</p>
+                <p>{'You could call me a front-end/UI/web developer, but I have a background in design, meaning I\'m quite the multitool when it comes to creating digital products.'}</p>
+                <p>{'I\'m quite fond of React, but I\'ve also worked extensively with Angular, Backbone and some other frameworks. Style guides and pattern libraries is something I\'ve been pushing early on.'}</p>
+                <p>{'I have worked with AB-testing & analytics, but previously also in games namely creating the UI and HUD systems for Remedy Entertainment\'s newest shooter.'}</p>
             </div>
         </div>
     );
